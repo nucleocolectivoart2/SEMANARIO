@@ -223,7 +223,7 @@ export default function Home() {
             {[
               { 
                 title: "ARCHIVO VIVO", 
-                desc: "Repositorio digital de ediciones históricas del Semanario Hoy (1990-2003).",
+                desc: "Repositorio digital de ediciones históricas del Semanario Hoy (1990-2000).",
                 icon: History,
                 href: "/archivo",
                 imgId: "archive-photo"
