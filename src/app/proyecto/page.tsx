@@ -53,7 +53,7 @@ export default function ProyectoPage() {
                         SEMANARIO HOY: ARCHIVO VIVO
                       </h2>
                       <p className="text-lg md:text-xl font-bold italic text-brand-black/60 leading-tight normal-case">
-                        Una narrativa transmedia que revitaliza el archivo histórico del Semanario Hoy (1990-2003) y lo expande hacia el presente (2026), documentando el tejido comunitario y cultural del centro de Medellín.
+                        Una narrativa transmedia que revitaliza el archivo histórico del Semanario Hoy (1990-2000) y lo expande hacia el presente (2026), documentando el tejido comunitario y cultural del centro de Medellín.
                       </p>
                     </div>
                   </div>
