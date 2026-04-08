@@ -377,29 +377,29 @@ export default function ProyectoPage() {
             </div>
 
             {/* 8. CUMPLIMIENTO CREA DIGITAL */}
-            <RevealSection className="bg-brand-red text-white p-12 md:p-20 shadow-2xl relative overflow-hidden group">
+            <RevealSection className="bg-brand-red text-white p-6 md:p-10 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 -translate-y-48 translate-x-48 rounded-full blur-3xl"></div>
-              <div className="relative z-10 space-y-10">
+              <div className="relative z-10 space-y-6">
                 <div className="flex items-center gap-6">
-                  <ShieldCheck size={56} className="text-white" />
+                  <ShieldCheck size={32} className="text-white" />
                   <div>
-                    <span className="text-[12px] font-black uppercase tracking-[0.5em] opacity-60">DOCUMENTACIÓN TÉCNICA</span>
-                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">CONVOCATORIA CREA DIGITAL 2026</h2>
+                    <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-60">DOCUMENTACIÓN TÉCNICA</span>
+                    <h2 className="text-xl md:text-3xl font-black uppercase tracking-tighter leading-none">CONVOCATORIA CREA DIGITAL 2026</h2>
                   </div>
                 </div>
                 <div className="prose prose-invert max-w-none">
-                  <p className="text-xl md:text-2xl font-bold leading-relaxed">
-                    Este prototipo constituye el cumplimiento del **numeral 3.11 de los Términos de Referencia**, funcionando como el eje central del ecosistema narrativo transmedia "Semanario Hoy: Archivo Vivo".
+                  <p className="text-sm md:text-base font-bold leading-relaxed">
+                    Este prototipo constituye el cumplimiento del numeral 3.11 de los Términos de Referencia, funcionando como el eje central del ecosistema narrativo transmedia "Semanario Hoy: Archivo Vivo".
                   </p>
                 </div>
-                <div className="pt-10 flex flex-wrap gap-6">
-                  <div className="bg-white/10 backdrop-blur-md px-8 py-4 border border-white/20">
-                    <span className="text-[9px] font-black uppercase tracking-widest block mb-1">ENTIDAD EJECUTORA</span>
-                    <p className="text-lg font-black uppercase">CORPORACIÓN GAIA</p>
+                <div className="pt-6 flex flex-wrap gap-6">
+                  <div className="bg-white/10 backdrop-blur-md px-4 py-2 border border-white/20">
+                    <span className="text-[8px] font-black uppercase tracking-widest block mb-1">ENTIDAD EJECUTORA</span>
+                    <p className="text-sm font-black uppercase">CORPORACIÓN GAIA</p>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-md px-8 py-4 border border-white/20">
-                    <span className="text-[9px] font-black uppercase tracking-widest block mb-1">ESTADO DEL DESARROLLO</span>
-                    <p className="text-lg font-black uppercase text-brand-gold">WEB EN DESARROLLO (ALFA)</p>
+                  <div className="bg-white/10 backdrop-blur-md px-4 py-2 border border-white/20">
+                    <span className="text-[8px] font-black uppercase tracking-widest block mb-1">ESTADO DEL DESARROLLO</span>
+                    <p className="text-sm font-black uppercase text-brand-gold">WEB EN DESARROLLO (ALFA)</p>
                   </div>
                 </div>
               </div>
