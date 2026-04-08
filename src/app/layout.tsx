@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'El Semanario HOY - Archivo Vivo del Corazón de Medellín',
-    description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta el archivo histórico con la escena cultural actual de Medellín.',
+    description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
     url: 'https://elsemanariohoy.com',
     siteName: 'El Semanario HOY',
     locale: 'es_CO',
