@@ -1,0 +1,88 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-center",
+      "description": "El Puente: Nuestra historia de resistencia cultural",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/img_botones/03%20PUENTE.png",
+      "imageHint": "Medellin Culture"
+    },
+    {
+      "id": "cultural-event",
+      "description": "Agenda Cultural: Programación veraz del centro",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/img_botones/01%20AGENDA.png",
+      "imageHint": "Urban Festival"
+    },
+    {
+      "id": "multimedia-video",
+      "description": "Cápsulas Digitales: Narrativas visuales",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/img_botones/02%20CAPSULAS.png",
+      "imageHint": "City Video"
+    },
+    {
+      "id": "archive-photo",
+      "description": "Archivo Vivo: Tesoro digital",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/img_botones/04%20ARCHIVO.png",
+      "imageHint": "Historical Newspaper"
+    },
+    {
+      "id": "cover-2024",
+      "description": "Portada Edición 2024",
+      "imageUrl": "https://picsum.photos/seed/cover24/600/850",
+      "imageHint": "Magazine Cover"
+    },
+    {
+      "id": "cover-2023",
+      "description": "Portada Edición 2023",
+      "imageUrl": "https://picsum.photos/seed/cover23/600/850",
+      "imageHint": "Vintage Newspaper"
+    },
+    {
+      "id": "cover-2022",
+      "description": "Portada Edición 2022",
+      "imageUrl": "https://picsum.photos/seed/cover22/600/850",
+      "imageHint": "Editorial Layout"
+    },
+    {
+      "id": "nosotros-main",
+      "description": "Registro artístico Semanario HOY",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Gemini_Generated_Image_u8dhvhu8dhvhu8dh.png",
+      "imageHint": "Artistic Archive"
+    },
+    {
+      "id": "nosotros-secondary",
+      "description": "Memoria viva Medellín",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Gemini_Generated_Image_bzoy04bzoy04bzoy.png",
+      "imageHint": "Urban Memory"
+    },
+    {
+      "id": "team-maria",
+      "description": "Maria Victoria Alvarez Gómez - Dirección",
+      "imageUrl": "https://picsum.photos/seed/team1/400/400",
+      "imageHint": "Portrait Woman"
+    },
+    {
+      "id": "team-carlos",
+      "description": "Carlos Andrés Londoño Ruiz - Realización",
+      "imageUrl": "https://picsum.photos/seed/team2/400/400",
+      "imageHint": "Portrait Man"
+    },
+    {
+      "id": "team-cecilia",
+      "description": "María Cecilia Castaño Rodríguez - Producción",
+      "imageUrl": "https://picsum.photos/seed/team3/400/400",
+      "imageHint": "Portrait Woman"
+    },
+    {
+      "id": "sabias-que-hero",
+      "description": "Curiosidades y Memoria del Centro",
+      "imageUrl": "https://picsum.photos/seed/facts/1200/800",
+      "imageHint": "Historical Curiosity"
+    },
+    {
+      "id": "mapa-hero",
+      "description": "Fragmentos de Memoria - Mapa",
+      "imageUrl": "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/mas%20imagenes/fragmentos-de-memoria-archivo-vivo-4.png",
+      "imageHint": "Memory Fragments"
+    }
+  ]
+}

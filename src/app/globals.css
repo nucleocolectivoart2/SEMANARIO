@@ -1,0 +1,110 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 40 70% 52%; /* #D9A02F Gold */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 182 53% 36%; /* #2B898D Teal */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 353 52% 51%; /* #C43D4C Red */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 40 70% 52%;
+    --radius: 0rem; /* Strictly orthogonal */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline font-black tracking-tighter uppercase leading-[0.85];
+  }
+}
+
+/* Custom UI Polish - Contemporary Editorial */
+.text-stroke-thin {
+  -webkit-text-stroke: 1.5px currentColor;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-brand-black;
+}
+
+.animate-reveal {
+  animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes reveal {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoom-loop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-zoom-loop {
+  animation: zoom-loop 20s ease-in-out infinite;
+}
+
+.hover-lift {
+  @apply transition-transform duration-500 hover:-translate-y-2;
+}
+
+/* Radio VU Meter Animation */
+@keyframes vumeter {
+  0%, 100% { height: 10%; }
+  25% { height: 80%; }
+  50% { height: 40%; }
+  75% { height: 100%; }
+}
+
+.animate-vumeter {
+  animation: vumeter 0.6s ease-in-out infinite;
+}
+
+/* Transitions and Parallax Classes */
+.parallax-fast {
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-slow {
+  transition: transform 0.3s ease-out;
+}
+
+/* Leaflet Popup Fixes - Premium Style */
+.leaflet-popup-content-wrapper {
+  @apply rounded-none border-none p-0 !bg-white shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)];
+}
+.leaflet-popup-content {
+  @apply m-0 !w-auto;
+}
+.leaflet-popup-tip-container {
+  @apply hidden;
+}
