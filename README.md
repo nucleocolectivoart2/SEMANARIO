@@ -66,7 +66,7 @@ Desarrollado específicamente para el proyecto por **Núcleo Colectivo**, el wid
 ## 🤝 Créditos
 -   **Dirección General:** María Victoria Álvarez Gómez.
 -   **Ejecución:** Corporación Gaia.
--   **Desarrollo Tecnológico y Creativo:** [Núcleo Colectivo](https://nucleocolectivo.com/).
+-   **Desarrollo Tecnológico y Creativo:** Manuel Palacio [Núcleo Colectivo](https://nucleocolectivo.com/). 2026
 -   **Apoyo Institucional:** Proyecto apoyado por el Ministerio de las Culturas, las Artes y los Saberes (Programa Nacional de Concertación Cultural).
 
 ---
