@@ -23,11 +23,11 @@ export default function ProyectoPage() {
   const mainImage = PlaceHolderImages.find(img => img.id === 'nosotros-main');
 
   const teamMembers = [
-    { name: "CARLOS LONDOÑO", role: "DIRECCIÓN AUDIOVISUAL Y PRODUCCIÓN" },
+    { name: "CARLOS LONDOÑO", role: "Realización y creación audiovisual" },
     { name: "MANUEL PALACIO", role: "ESTRUCTURA WEB Y NARRATIVA DIGITAL" },
-    { name: "MARIA VICTORIA ALVAREZ", role: "COORDINACIÓN GENERAL Y LÍNEA EDITORIAL" },
-    { name: "MARÍA CECILIA CASTAÑO", role: "PRODUCCIÓN Y GESTIÓN" },
-    { name: "PAULA ÚSUGA", role: "ADMINISTRACIÓN Y SEGUIMIENTO" },
+    { name: "MARIA VICTORIA ALVAREZ", role: "Dirección general y coordinación editorial" },
+    { name: "MARÍA CECILIA CASTAÑO", role: "Producción creativa audiovisual" },
+    { name: "PAULA ÚSUGA", role: "Investigación y comunicaciones" },
     { name: "ALIANZAS O APOYO", role: "NÚCLEO COLECTIVO Y CORPORACIÓN GAIA" }
   ];
 
@@ -303,18 +303,18 @@ export default function ProyectoPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {[
                   { 
-                    label: "NATIVOS DIGITALES (18-40)", 
-                    text: "Estudiantes y jóvenes creadores. Conexión alta mediante web interactiva, podcasts en Spotify y reels en Instagram/TikTok.",
+                    label: "JÓVENES Y NATIVOS DIGITALES", 
+                    text: "Estudiantes, artistas y nuevos creadores interesados en la cultura y la historia. Encuentran en este universo transmedia un lenguaje actual para conectar con el legado de la ciudad.",
                     icon: Smartphone
                   },
                   { 
-                    label: "PÚBLICO GENERAL (40+)", 
-                    text: "Adultos que conocieron el Semanario. Valoran la accesibilidad del E-book, Facebook y la navegación intuitiva de la web.",
+                    label: "ADULTOS Y PÚBLICO GENERAL", 
+                    text: "Ciudadanos que vivieron la época del Semanario y todos aquellos interesados en la memoria urbana. Un puente intergeneracional diseñado para ser accesible y emocionante para todos.",
                     icon: Users
                   },
                   { 
-                    label: "ESPECIALIZADO", 
-                    text: "Investigadores y gestores culturales. Utilizan la web como repositorio documentado y base de datos georreferenciada.",
+                    label: "ESPECIALIZADO Y AMANTES DEL ARTE", 
+                    text: "Investigadores, gestores y público de todas las edades. Material diseñado para todos los públicos que buscan conectar profundamente con el arte, la historia y el patrimonio vivo.",
                     icon: BarChart
                   }
                 ].map((p, i) => (
@@ -336,10 +336,9 @@ export default function ProyectoPage() {
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   {[
-                    "Fortalecimiento del tejido comunitario y apropiación del territorio.",
+                    "fortalecimiento del tejido social",
                     "Generación de empleo local y visibilidad para organizaciones del centro.",
-                    "Revitalización del patrimonio cultural inmaterial de Medellín.",
-                    "Incidencia en planeación urbana mediante valoración del espacio de memoria."
+                    "Revitalización del patrimonio cultural inmaterial de Medellín."
                   ].map((imp, i) => (
                     <div key={i} className="flex gap-4 items-start bg-brand-red/5 p-4 border-l-4 border-brand-red">
                       <Zap size={16} className="text-brand-red mt-1 shrink-0" />
