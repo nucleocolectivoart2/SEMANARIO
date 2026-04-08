@@ -1,0 +1,62 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admin_users/$(request.auth.uid));
+    }
+
+    function isExistingAdmin() {
+      return isAdmin() && resource != null;
+    }
+
+    function matchesPathId(idFromPath) {
+      return request.resource.data.id == idFromPath;
+    }
+
+    function isIdImmutable() {
+      return request.resource.data.id == resource.data.id;
+    }
+
+    match /admin_users/{adminId} {
+      allow get: if isSignedIn() && (request.auth.uid == adminId || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isSignedIn() && request.auth.uid == adminId && matchesPathId(adminId);
+      allow update: if isExistingAdmin() && isIdImmutable();
+      allow delete: if isExistingAdmin() && request.auth.uid != adminId;
+    }
+
+    match /cultural_events/{eventId} {
+      allow get, list: if true;
+      allow create: if isAdmin() && matchesPathId(eventId);
+      allow update: if isExistingAdmin() && isIdImmutable();
+      allow delete: if isExistingAdmin();
+    }
+
+    match /multimedia_content/{contentId} {
+      allow get, list: if true;
+      allow create: if isAdmin() && matchesPathId(contentId);
+      allow update: if isExistingAdmin() && isIdImmutable();
+      allow delete: if isExistingAdmin();
+    }
+
+    match /memory_places/{placeId} {
+      allow get, list: if true;
+      allow create: if isAdmin() && matchesPathId(placeId);
+      allow update: if isExistingAdmin() && isIdImmutable();
+      allow delete: if isExistingAdmin();
+    }
+
+    match /archive_items/{itemId} {
+      allow get, list: if true;
+      allow create: if isAdmin() && matchesPathId(itemId);
+      allow update: if isExistingAdmin() && isIdImmutable();
+      allow delete: if isExistingAdmin();
+    }
+  }
+}
