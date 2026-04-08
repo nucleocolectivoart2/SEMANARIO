@@ -82,7 +82,7 @@ const podcasts = [
   { 
     id: 0, 
     title: "RESUMEN HISTÓRICO: EL SEMANARIO CULTURAL", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/podcast_semanario/el-semanario.mp3",
     desc: "Medellín, 1990. Una ciudad que bullía entre la industria y una violencia que empezaba a teñir sus calles. En ese contexto nació un periódico que no hablaba de política ni de crímenes, sino de versos, cámaras y escenarios.",
     image: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/podcast_semanario/portada-podcast.png",
@@ -101,7 +101,7 @@ const podcasts = [
   { 
     id: 1, 
     title: "EPISODIO 1: ORÍGENES", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
     desc: "Indagamos en los inicios del Semanario Cultural como herramienta de comunicación alternativa en una ciudad que aprendía a resistir.",
     image: COLLAGE_URL,
@@ -119,7 +119,7 @@ const podcasts = [
   { 
     id: 2, 
     title: "EPISODIO 2: VOX POPULI", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
     desc: "Exploramos las organizaciones de ayer que permanecen aún hoy, demostrando que la cultura es un eje de transformación que persiste.",
     image: COLLAGE_URL,
@@ -137,7 +137,7 @@ const podcasts = [
   { 
     id: 3, 
     title: "EPISODIO 3: PERSONAJES", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
     desc: "Testimonios de protagonistas de una época: periodistas, artistas y gestores que hicieron del periodismo cultural un escudo de resistencia.",
     image: COLLAGE_URL,
@@ -155,7 +155,7 @@ const podcasts = [
   { 
     id: 4, 
     title: "EPISODIO 4: CÓMO SE CRECE", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
     desc: "Redes culturales, salas concertadas y proyectos colaborativos. Analizamos cómo se ha construido el ecosistema creativo hoy en Medellín.",
     image: COLLAGE_URL,
@@ -173,7 +173,7 @@ const podcasts = [
   { 
     id: 5, 
     title: "EPISODIO 5: NUEVAS ORGANIZACIONES", 
-    duration: "MÁX. 5 MIN", 
+    duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
     desc: "Jóvenes creadores y gestores que hoy lideran la escena. Un diálogo intergeneracional sobre el derecho a la ciudad desde la cultura.",
     image: COLLAGE_URL,
