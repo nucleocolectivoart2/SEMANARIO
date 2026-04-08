@@ -7,9 +7,9 @@ import { RadioWidget } from '@/components/RadioWidget';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'El Semanario HOY | Cultura y Memoria en el Centro de Medellín',
-  description: 'Registro y agenda cultural del corazón de Medellín. Vive y resuena con el patrimonio, los eventos y la memoria urbana en El Semanario HOY.',
-  keywords: ['Medellín', 'Centro de Medellín', 'Cultura', 'Agenda Cultural', 'Memoria Urbana', 'Patrimonio', 'El Semanario HOY'],
+  title: 'El Semanario HOY | Archivo Vivo y Cultura de Medellín',
+  description: 'Una narrativa transmedia que revitaliza la memoria urbana y el archivo histórico del corazón de Medellín. Conéctate con la escena cultural actual.',
+  keywords: ['Medellín', 'Cultura Medellín', 'Agenda Cultural', 'Memoria Urbana', 'Patrimonio', 'El Semanario HOY', 'Archivo Vivo'],
   authors: [{ name: 'El Semanario HOY' }],
   icons: {
     icon: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     apple: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
   },
   openGraph: {
-    title: 'El Semanario HOY - El Corazón de Medellín en un solo lugar',
-    description: 'Explora la programación cultural y el archivo de memoria del Centro de Medellín.',
+    title: 'El Semanario HOY - Archivo Vivo del Corazón de Medellín',
+    description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta el archivo histórico con la escena cultural actual de Medellín.',
     url: 'https://elsemanariohoy.com',
     siteName: 'El Semanario HOY',
     locale: 'es_CO',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'El Semanario HOY',
-    description: 'Cultura y Memoria en el Centro de Medellín.',
+    title: 'El Semanario HOY | Cultura y Memoria Urbana',
+    description: 'Archivo vivo cultural que revitaliza la historia de Medellín y te conecta con su presente artístico.',
     images: ['https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png'],
   },
 };
