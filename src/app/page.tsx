@@ -163,8 +163,8 @@ export function LegacySection() {
               </p>
               
               <Badge className="mt-10 bg-brand-gold text-brand-black px-6 py-2 rounded-none text-[10px] font-black uppercase tracking-[0.3em] border-none shadow-lg w-fit block">
-                SEMANARIO<br />
-                CULTURAL
+                Archivos que documentan una época.<br />
+                SEMANARIO CULTURAL
               </Badge>
             </RevealSection>
           </div>
