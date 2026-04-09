@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
@@ -139,7 +138,7 @@ const podcasts = [
     title: "EPISODIO 3: PERSONAJES", 
     duration: "MÍN. 5 MIN", 
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    desc: "Testimonios de protagonistas de una época: periodistas, artistas y gestores que hicieron del periodismo cultural un escudo de resistencia.",
+    desc: "Testimonios de protagonistas de una época: periodistas, artistas y gestores que hicieron del periodismo cultural un escudo de resistance.",
     image: COLLAGE_URL,
     position: "85% 15%",
     zoom: 1.5,
@@ -323,7 +322,7 @@ export default function MediatecaPage() {
   const navItems = [
     { 
       id: 'centro-vive', 
-      label: 'EL CENTRO VIVE\nY RESUENA CON\NEL SEMANARIO', 
+      label: 'EL CENTRO VIVE\nY RESUENA\nCON EL SEMANARIO', 
       icon: Library, 
       color: 'bg-brand-teal', 
       hoverColor: 'hover:bg-brand-teal',
@@ -560,62 +559,152 @@ export default function MediatecaPage() {
                 ))}
               </div>
 
-              {/* Bloque de Equipo y Organizaciones */}
-              <RevealSection className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-32 pt-20 border-t border-white/10">
-                 <div className="lg:col-span-5 space-y-10">
-                    <div className="space-y-4">
-                       <Badge className="bg-brand-gold text-brand-black rounded-none tracking-widest text-[10px]">FICHA TÉCNICA</Badge>
-                       <h2 className="text-4xl font-black uppercase tracking-tighter leading-none">EQUIPO HOY</h2>
-                    </div>
+              {/* BANNER INSTITUCIONAL UNIFICADO — DIAGRAMACIÓN ACTUALIZADA */}
+              <div className="relative w-[100vw] left-1/2 -translate-x-1/2 mt-20">
+                <div className="bg-white text-brand-black py-12 border-y border-gray-100">
+                  <div className="container mx-auto px-6 max-w-7xl">
                     
-                    <div className="space-y-8">
-                       {[
-                         { role: "DIRECCIÓN", name: "María Victoria Álvarez Gómez" },
-                         { role: "REALIZACIÓN AUDIOVISUAL Y EDICIÓN", name: "Carlos Andrés Londoño Ruiz / @carlos.londor" },
-                         { role: "PRODUCCIÓN", name: "María Cecilia Castaño Rodríguez / @duna_movil" },
-                         { role: "COMUNICACIONES", name: "Estefany Rivera Orrego • Natalia Vélez Sepúlveda" },
-                         { role: "IMÁGENES DRONE", name: "John Cuervo Moreno / @_cuervofilms" },
-                         { role: "LOCUCIÓN", name: "Paula Úsuga Álvarez" },
-                         { role: "TÉCNICO DE SONIDO", name: "Julián Álvarez Kusy" }
-                       ].map((m, i) => (
-                         <div key={i} className="border-l-4 border-brand-gold pl-6 space-y-1">
-                            <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em]">{m.role}</span>
-                            <p className="text-base font-black uppercase tracking-tighter">{m.name}</p>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-
-                 <div className="lg:col-span-7 space-y-10">
-                    <div className="space-y-4">
-                       <Badge className="bg-brand-teal text-white rounded-none tracking-widest text-[10px]">ECOSISTEMA CULTURAL</Badge>
-                       <h2 className="text-4xl font-black uppercase tracking-tighter leading-none">ORGANIZACIONES PARTICIPANTES</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                       {[
-                         "Agua Dulce Restaurante", "Donde Robin Bar – Tango Bar",
-                         "Corporación Cultural Viva Palabra", "El Club del Jazz",
-                         "Centro Cultural La Huerta", "La Casa Centro Cultural",
-                         "Pequeño Teatro", "Teatro Casa Clown", "Teatro Matacandelas"
-                       ].map((org, i) => (
-                         <div key={i} className="bg-white/5 p-6 border border-white/5 hover:border-brand-teal transition-colors group">
-                            <div className="flex items-center gap-4">
-                               <div className="w-2 h-2 bg-brand-teal rounded-full" />
-                               <span className="font-bold text-sm md:text-base uppercase tracking-tight group-hover:text-brand-teal transition-colors">{org}</span>
+                    {/* 1. BLOQUE DE CRÉDITOS Y ORGANIZACIONES (Superior) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 mb-16">
+                      {/* Ficha Técnica */}
+                      <RevealSection className="lg:col-span-5 space-y-10">
+                        <div className="space-y-4">
+                          <span className="inline-block bg-brand-gold text-brand-black px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">FICHA TÉCNICA EQUIPO HOY</span>
+                          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none mt-4">EQUIPO HOY</h2>
+                        </div>
+                        
+                        <div className="space-y-6">
+                          {[
+                            { role: "DIRECCIÓN", name: "María Victoria Álvarez Gómez" },
+                            { role: "REALIZACIÓN AUDIOVISUAL Y EDICIÓN", name: "Carlos Andrés Londoño Ruiz / @carlos.londor" },
+                            { role: "PRODUCCIÓN", name: "María Cecilia Castaño Rodríguez / @duna_movil" },
+                            { role: "COMUNICACIONES", name: "Estefany Rivera Orrego • Natalia Vélez Sepúlveda" },
+                            { role: "IMÁGENES DRONE", name: "John Cuervo Moreno / @_cuervofilms" },
+                            { role: "LOCUCIÓN", name: "Paula Úsuga Álvarez" },
+                            { role: "TÉCNICO DE SONIDO", name: "Julián Álvarez Kusy" }
+                          ].map((m, i) => (
+                            <div key={i} className="border-l-4 border-brand-gold pl-6 space-y-1 group">
+                              <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em] group-hover:text-brand-black transition-colors">{m.role}</span>
+                              <p className="text-sm font-black uppercase tracking-tighter">{m.name}</p>
                             </div>
-                         </div>
-                       ))}
+                          ))}
+                        </div>
+                      </RevealSection>
+
+                      {/* Organizaciones */}
+                      <RevealSection delay={200} className="lg:col-span-7 space-y-10">
+                        <div className="space-y-4">
+                          <span className="inline-block bg-brand-teal text-white px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">ECOSISTEMA CULTURAL</span>
+                          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none mt-4">ORGANIZACIONES PARTICIPANTES</h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {[
+                            "Agua Dulce Restaurante", "Donde Robin Bar – Tango Bar",
+                            "Corporación Cultural Viva Palabra", "El Club del Jazz",
+                            "Centro Cultural La Huerta", "La Casa Centro Cultural",
+                            "Pequeño Teatro", "Teatro Casa Clown", "Teatro Matacandelas"
+                          ].map((org, i) => (
+                            <div key={i} className="bg-white p-4 border border-gray-100 hover:border-brand-teal hover:bg-gray-50/30 transition-all group shadow-sm cursor-default">
+                              <div className="flex items-center gap-3">
+                                <div className="w-1.5 h-1.5 bg-brand-teal rounded-full transition-colors group-hover:scale-125" />
+                                <span className="font-bold text-xs md:text-sm uppercase tracking-tight group-hover:text-brand-teal transition-colors">{org}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </RevealSection>
                     </div>
 
-                    <div className="pt-10 space-y-6">
-                       <div className="p-8 border-2 border-brand-teal/20 bg-brand-teal/5 space-y-4">
-                          <span className="text-[9px] font-black text-brand-teal uppercase tracking-[0.3em]">AGRADECIMIENTOS ESPECIALES</span>
-                          <p className="text-xl font-black uppercase tracking-tighter">Caminá pa'l Centro - Agenda cultural</p>
-                       </div>
+                    {/* 2. LOGO PROYECTO Y AGRADECIMIENTOS (Medio) - DIAGRAMACIÓN COMPACTA */}
+                    <RevealSection className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center border-t border-gray-100 pt-8 mb-8">
+                      <div className="lg:col-span-6 flex justify-center lg:justify-start">
+                        <a 
+                          href="https://www.youtube.com/channel/UCqns8GIBFKxWKipQKIUSNPA" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="relative block w-[41rem] h-80 transition-transform hover:scale-105"
+                        >
+                          <Image 
+                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logo_El_Centro.jpeg" 
+                            alt="El Centro Vive y Resuena" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </a>
+                      </div>
+
+                      <div className="lg:col-span-6 flex flex-col gap-1 items-center lg:items-start">
+                        <div className="flex items-center gap-2 text-brand-teal mb-4">
+                          <Sparkles size={14} />
+                          <span className="font-black text-[9px] uppercase tracking-[0.4em]">AGRADECIMIENTOS ESPECIALES</span>
+                        </div>
+                        <a 
+                          href="https://www.instagram.com/caminapalcentromed/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="group block space-y-2 text-center lg:text-left"
+                        >
+                          <div className="relative w-64 h-64 transition-transform group-hover:scale-105 mx-auto lg:mx-0">
+                            <Image 
+                              src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-camina-pal-centro.png" 
+                              alt="Logo Caminá pa'l Centro" 
+                              fill 
+                              className="object-contain" 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-[9px] font-medium text-brand-black/60 leading-relaxed max-w-xl uppercase tracking-tight">
+                              Iniciativa colaborativa para valorar un bien común: el centro de Medellín, el barrio de todos.
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </RevealSection>
+
+                    {/* 3. LOGOS APOYO GUBERNAMENTAL Y TEXTO REGLAMENTARIO (Final del bloque blanco) */}
+                    <RevealSection className="border-t border-gray-100 pt-16">
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-8">
+                        <div className="relative w-56 h-24">
+                          <Image 
+                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-culturas-violeta.png" 
+                            alt="Ministerio de las Culturas" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </div>
+                        <div className="h-12 w-px bg-gray-200 hidden md:block" />
+                        <a href="https://fconvida.org/" target="_blank" rel="noopener noreferrer" className="relative w-[24rem] h-32 transition-transform hover:scale-105">
+                          <Image 
+                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logofcv.png" 
+                            alt="Fundación ConVida" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </a>
+                      </div>
+                      <div className="text-center max-w-4xl mx-auto mb-12">
+                        <p className="text-[9px] md:text-[10px] font-black uppercase leading-relaxed tracking-wider text-brand-black/80">
+                          “PROYECTO APOYADO POR EL MINISTERIO DE LAS CULTURAS, LAS ARTES Y LOS SABERES, <br className="hidden md:block" />
+                          PROGRAMA NACIONAL DE CONCERTACIÓN CULTURAL”
+                        </p>
+                      </div>
+                    </RevealSection>
+
+                    <div className="flex flex-col items-center gap-1 mt-8">
+                      <span className="text-xs font-black uppercase tracking-[0.5em] text-brand-gold">MEDELLÍN 2025</span>
                     </div>
-                 </div>
-              </RevealSection>
+                  </div>
+                </div>
+                
+                {/* 4. BARRA DE CIERRE EDITORIAL (Negra) */}
+                <div className="bg-brand-black py-12 px-6 border-t-4 border-brand-gold">
+                  <p className="text-base md:text-xl font-black uppercase tracking-tighter text-white/90 text-center max-w-4xl mx-auto leading-tight">
+                    El Centro de Medellín vive y resuena EL SEMANARIO: <br />
+                    <span className="text-brand-gold italic">arte, patrimonio y corazón cultural de la ciudad</span>
+                  </p>
+                </div>
+              </div>
             </TabsContent>
 
             <TabsContent value="podcasts" className="space-y-16 animate-in fade-in slide-in-from-bottom-4 duration-700 outline-none">

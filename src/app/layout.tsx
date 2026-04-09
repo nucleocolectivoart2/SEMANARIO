@@ -8,7 +8,7 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'El Semanario HOY | Archivo Vivo y Cultura de Medellín',
-  description: 'Una narrativa transmedia que revitaliza la memoria urbana y el archivo histórico del corazón de Medellín. Conéctate con la escena cultural actual.',
+  description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
   keywords: ['Medellín', 'Cultura Medellín', 'Agenda Cultural', 'Memoria Urbana', 'Patrimonio', 'El Semanario HOY', 'Archivo Vivo'],
   authors: [{ name: 'El Semanario HOY' }],
   icons: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'El Semanario HOY | Cultura y Memoria Urbana',
-    description: 'Archivo vivo cultural que revitaliza la historia de Medellín y te conecta con su presente artístico.',
+    description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
     images: ['https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png'],
   },
 };
