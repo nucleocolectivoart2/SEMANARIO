@@ -5,8 +5,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { RadioWidget } from '@/components/RadioWidget';
 import { Footer } from '@/components/Footer';
 
-// URL oficial del icono con bust de caché para forzar actualización en navegadores
-const ICON_URL = 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png?v=2';
+// URL oficial del favicon desde el repositorio GitHub (versión raw para máxima compatibilidad)
+const ICON_URL = 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/src/app/favicon.ico?v=6';
 
 export const metadata: Metadata = {
   title: 'El Semanario HOY | Archivo Vivo y Cultura de Medellín',
@@ -15,12 +15,18 @@ export const metadata: Metadata = {
   authors: [{ name: 'El Semanario HOY' }],
   icons: {
     icon: [
-      { url: ICON_URL, type: 'image/png' },
-      { url: ICON_URL, sizes: '32x32', type: 'image/png' },
-      { url: ICON_URL, sizes: '16x16', type: 'image/png' },
+      { url: ICON_URL, type: 'image/x-icon' },
+      { url: ICON_URL, sizes: '32x32', type: 'image/x-icon' },
+      { url: ICON_URL, sizes: '16x16', type: 'image/x-icon' },
     ],
-    shortcut: ICON_URL,
-    apple: ICON_URL,
+    shortcut: [ICON_URL],
+    apple: [ICON_URL],
+    other: [
+      {
+        rel: 'icon',
+        url: ICON_URL,
+      },
+    ],
   },
   openGraph: {
     title: 'El Semanario HOY - Archivo Vivo del Corazón de Medellín',
@@ -63,9 +69,9 @@ export default function RootLayout({
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         />
-        {/* Forzado de favicon mediante etiquetas link explícitas para máxima compatibilidad */}
-        <link rel="icon" type="image/png" href={ICON_URL} />
-        <link rel="shortcut icon" type="image/png" href={ICON_URL} />
+        {/* Inyección forzada de favicon al final del head para máxima prioridad sobre archivos locales */}
+        <link rel="icon" href={ICON_URL} sizes="any" type="image/x-icon" />
+        <link rel="shortcut icon" href={ICON_URL} type="image/x-icon" />
         <link rel="apple-touch-icon" href={ICON_URL} />
       </head>
       <body className="font-body antialiased selection:bg-brand-gold selection:text-white bg-white">
