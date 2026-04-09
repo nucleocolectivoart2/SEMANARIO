@@ -194,8 +194,8 @@ const reels = [
   { id: 'r1', title: 'UN DÍA EN LA VIDA', youtubeId: 'jaS5sXS67Xc', description: 'Narrativa observacional de 60 segundos.' },
   { id: 'r2', title: 'EL ORIGEN EN 60"', youtubeId: 'KdFvqG0qUlQ', description: 'Condensado de la historia fundacional.' },
   { id: 'r3', title: 'MANOS QUE CREAN', youtubeId: 'lrrYQthosl8', description: 'Estudio visual sobre el trabajo manual.' },
-  { id: 'r4', title: 'LO QUE MEDELLÍN NO SABE', youtubeId: 'l530ZiOZjQk', description: 'Tríptico cinematográfico que conecta organizaciones.' },
-  { id: 'r5', title: 'NECESITAN TU MIRADA', youtubeId: 'YaLSyFGmT5Y', description: 'Pieza honesta donde los protagonistas responden.' }
+  { id: 'r4', title: 'MANOS QUE CREAN 2', youtubeId: 'l530ZiOZjQk', description: 'Estudio visual sobre el trabajo manual.' },
+  { id: 'r5', title: 'LO QUE MEDELLÍN NO SABE', youtubeId: 'YaLSyFGmT5Y', description: 'Tríptico cinematográfico que conecta organizaciones.' }
 ];
 
 const comparisons = [
@@ -437,7 +437,7 @@ export default function MediatecaPage() {
                         "flex-1 min-w-[140px] lg:min-w-0 lg:flex-1 h-24 lg:h-32 rounded-none border border-white/5 flex flex-col items-center justify-center gap-2 transition-all duration-500",
                         "bg-white text-brand-black",
                         item.hoverColor, "hover:text-white",
-                        item.activeColor, "data-[state=active]:text-white data-[state=active]:border-transparent data-[state=active]:shadow-2xl"
+                        item.activeColor, "data-[state=active]:bg-brand-teal"
                       )}
                     >
                       <item.icon 
@@ -540,7 +540,7 @@ export default function MediatecaPage() {
                          “Proyecto Apoyado por el MINISTERIO DE LAS CULTURAS, LAS ARTES Y LOS SABERES, Programa Nacional de Concertación Cultural”
                        </p>
                        <div className="pt-2 border-t border-white/10">
-                          <span className="text-[8px] font-black text-white/40 uppercase">MEDELLÍN 2025</span>
+                          <span className="text-[8px] font-black text-white/40 uppercase">MEDELLÍN 2025 - 2026</span>
                        </div>
                     </div>
                   </div>
@@ -572,8 +572,8 @@ export default function MediatecaPage() {
                       {/* Ficha Técnica */}
                       <RevealSection className="lg:col-span-5 space-y-10">
                         <div className="space-y-4">
-                          <span className="inline-block bg-brand-gold text-brand-black px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">FICHA TÉCNICA EQUIPO HOY</span>
-                          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none mt-4">EQUIPO HOY</h2>
+                          <span className="inline-block bg-brand-gold text-brand-black px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">FICHA TÉCNICA EQUIPO EL SEMANARIO HOY</span>
+                          <h2 className="text-3xl font-black uppercase tracking-tighter leading-none mt-4">EQUIPO</h2>
                         </div>
                         
                         <div className="space-y-6">
@@ -581,9 +581,9 @@ export default function MediatecaPage() {
                             { role: "DIRECCIÓN", name: "María Victoria Álvarez Gómez" },
                             { role: "REALIZACIÓN AUDIOVISUAL Y EDICIÓN", name: "Carlos Andrés Londoño Ruiz / @carlos.londor" },
                             { role: "PRODUCCIÓN", name: "María Cecilia Castaño Rodríguez / @duna_movil" },
-                            { role: "COMUNICACIONES", name: "Estefany Rivera Orrego • Natalia Vélez Sepúlveda" },
+                            { role: "COMUNICACIONES", name: "Estefany Rivera Orrego • Natalia Vélez Sepúlveda • Paula Andrea Úsuga Álvarez" },
                             { role: "IMÁGENES DRONE", name: "John Cuervo Moreno / @_cuervofilms" },
-                            { role: "LOCUCIÓN", name: "Paula Úsuga Álvarez" },
+                            { role: "LOCUCIÓN", name: "Paula Andrea Úsuga Álvarez" },
                             { role: "TÉCNICO DE SONIDO", name: "Julián Álvarez Kusy" }
                           ].map((m, i) => (
                             <div key={i} className="border-l-4 border-brand-gold pl-6 space-y-1 group">
@@ -617,19 +617,14 @@ export default function MediatecaPage() {
                           ))}
                         </div>
 
-                        {/* Agradecimientos Especiales Directamente debajo de Orgs */}
+                        {/* Agradecimientos Especiales */}
                         <div className="pt-4 border-t border-gray-100 space-y-2">
                           <div className="flex items-center gap-2 text-brand-teal">
                             <Sparkles size={14} />
                             <span className="font-black text-[9px] uppercase tracking-[0.4em]">AGRADECIMIENTOS ESPECIALES</span>
                           </div>
                           
-                          <a 
-                            href="https://www.instagram.com/caminapalcentromed/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="group flex items-center gap-6"
-                          >
+                          <div className="group flex items-center gap-6">
                             <div className="relative w-28 h-28 transition-transform group-hover:scale-105 shrink-0">
                               <Image 
                                 src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-camina-pal-centro.png" 
@@ -644,18 +639,18 @@ export default function MediatecaPage() {
                                 el centro de Medellín, el barrio de todos.
                               </p>
                             </div>
-                          </a>
+                          </div>
                         </div>
                       </RevealSection>
                     </div>
 
-                    {/* LOGO EL CENTRO VIVE Y RESUENA (RESTAURADO DESPUÉS DE CRÉDITOS) */}
+                    {/* 2. LOGO EL CENTRO VIVE Y RESUENA */}
                     <RevealSection className="border-t border-gray-100 pt-12 mb-12 flex justify-center">
                       <a 
                         href="https://www.youtube.com/channel/UCqns8GIBFKxWKipQKIUSNPA" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="relative block w-full max-w-[28rem] h-60 transition-transform hover:scale-105"
+                        className="relative block w-full max-w-[35rem] h-60 transition-transform hover:scale-105"
                       >
                         <Image 
                           src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logo_El_Centro.jpg" 
@@ -687,16 +682,16 @@ export default function MediatecaPage() {
                     </RevealSection>
 
                     <div className="flex flex-col items-center gap-1 mt-8">
-                      <span className="text-xs font-black uppercase tracking-[0.5em] text-brand-gold">MEDELLÍN 2025</span>
+                      <span className="text-xs font-black uppercase tracking-[0.5em] text-brand-gold">MEDELLÍN 2025 - 2026</span>
                     </div>
                   </div>
                 </div>
                 
                 {/* 4. BARRA DE CIERRE EDITORIAL */}
                 <div className="bg-[#9D6BA1] py-12 px-6 border-t-4 border-brand-gold">
-                  <p className="text-base md:text-xl font-black uppercase tracking-tighter text-white text-center max-w-4xl mx-auto leading-tight">
-                    EL CENTRO DE MEDELLÍN VIVE Y RESUENA EL SEMANARIO: <br />
-                    <span className="italic text-white">ARTE, PATRIMONIO Y CORAZÓN CULTURAL DE LA CIUDAD</span>
+                  <p className="text-base md:text-xl font-black tracking-tighter text-white text-center max-w-4xl mx-auto leading-tight">
+                    <span className="uppercase block mb-2">EL CENTRO VIVE Y RESUENA CON EL SEMANARIO:</span>
+                    <span className="italic text-white font-medium normal-case">¡El Centro de Medellín, todo en un mismo lugar!</span>
                   </p>
                 </div>
               </div>
