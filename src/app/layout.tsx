@@ -1,4 +1,3 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
@@ -6,15 +5,22 @@ import { Toaster } from '@/components/ui/toaster';
 import { RadioWidget } from '@/components/RadioWidget';
 import { Footer } from '@/components/Footer';
 
+// URL oficial del icono con bust de caché para forzar actualización en navegadores
+const ICON_URL = 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png?v=2';
+
 export const metadata: Metadata = {
   title: 'El Semanario HOY | Archivo Vivo y Cultura de Medellín',
   description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
   keywords: ['Medellín', 'Cultura Medellín', 'Agenda Cultural', 'Memoria Urbana', 'Patrimonio', 'El Semanario HOY', 'Archivo Vivo'],
   authors: [{ name: 'El Semanario HOY' }],
   icons: {
-    icon: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
-    shortcut: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
-    apple: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
+    icon: [
+      { url: ICON_URL, type: 'image/png' },
+      { url: ICON_URL, sizes: '32x32', type: 'image/png' },
+      { url: ICON_URL, sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: ICON_URL,
+    apple: ICON_URL,
   },
   openGraph: {
     title: 'El Semanario HOY - Archivo Vivo del Corazón de Medellín',
@@ -25,7 +31,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
+        url: ICON_URL,
         width: 800,
         height: 800,
         alt: 'El Semanario HOY',
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'El Semanario HOY | Cultura y Memoria Urbana',
     description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
-    images: ['https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png'],
+    images: [ICON_URL],
   },
 };
 
@@ -57,8 +63,10 @@ export default function RootLayout({
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         />
-        {/* Etiqueta de enlace explícita para forzar el favicon oficial */}
-        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png" />
+        {/* Forzado de favicon mediante etiquetas link explícitas para máxima compatibilidad */}
+        <link rel="icon" type="image/png" href={ICON_URL} />
+        <link rel="shortcut icon" type="image/png" href={ICON_URL} />
+        <link rel="apple-touch-icon" href={ICON_URL} />
       </head>
       <body className="font-body antialiased selection:bg-brand-gold selection:text-white bg-white">
         <FirebaseClientProvider>
