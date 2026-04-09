@@ -21,6 +21,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Slider } from '@/components/ui/slider';
+import { RadioWidget } from '@/components/RadioWidget';
 
 const COLLAGE_URL = "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/archivo/portadas/collage.jpg";
 const FRAGMENTOS_BASE = "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/mas%20imagenes";
@@ -42,10 +43,10 @@ export const officialVideos = [
   { id: 'v-t1-7', title: 'EPISODIO 7: VIVA PALABRA', season: 'TEMPORADA 1 (2025)', youtubeId: 'jaS5sXS67Xc', description: '28 años contando cuentos en el centro de Medellín.', project: 'centro-vive' },
   { id: 'v-t1-6', title: 'EPISODIO 6: ARTE URBANO', season: 'TEMPORADA 1 (2025)', youtubeId: 'KdFvqG0qUlQ', description: 'La calle como lienzo de expresión cultural.', project: 'centro-vive' },
   { id: 'v-t1-5', title: 'EPISODIO 5: CASA DEL ENCUENTRO', season: 'TEMPORADA 1 (2025)', youtubeId: 'zMFHJfp6st4', description: 'Diálogos y saberes en un espacio histórico.', project: 'centro-vive' },
-  { id: 'v-t1-4', title: 'EPISODIO 4: PEQUEÑO TEATRO', season: 'TEMPORADA 1 (2025)', youtubeId: '3nwMCxiW57E', description: '45 años de arte dramático y resistencia cultural.', project: 'centro-vive' },
+  { id: 'v-t1-4', title: 'EPISODIO 4: PEQUEÑO TEATRO', season: 'TEMPORADA 1 (2025)', youtubeId: '3nwMCxiW57E', description: '45 años de arte dramático y resistance cultural.', project: 'centro-vive' },
   { id: 'v-t1-3', title: 'EPISODIO 3: TRADICIÓN', season: 'TEMPORADA 1 (2025)', youtubeId: 'l1nhyWNDgp0', description: 'Historias que definen nuestra identidad.', project: 'centro-vive' },
   { id: 'v-t1-2', title: 'EPISODIO 2: REGISTRO', season: 'TEMPORADA 1 (2025)', youtubeId: 'D_7TBSnII94', description: 'Primeros pasos del proyecto El Centro Vive.', project: 'centro-vive' },
-  { id: 'v-t1-1', title: 'EPISODIO 1: EL ORIGEN', season: 'TEMPORADA 1 (2025)', youtubeId: 'FaGMpv2db_M', description: 'El inicio de una historia de resistencia cultural en el corazón de la ciudad.', project: 'centro-vive' },
+  { id: 'v-t1-1', title: 'EPISODIO 1: EL ORIGEN', season: 'TEMPORADA 1 (2025)', youtubeId: 'FaGMpv2db_M', description: 'El inicio de una historia de resistance cultural en el corazón de la ciudad.', project: 'centro-vive' },
 
   // CREA DIGITAL 2026
   { 
@@ -393,21 +394,23 @@ export default function MediatecaPage() {
               </div>
             </RevealSection>
             
-            <RevealSection delay={300} className="lg:col-span-5 relative group hidden lg:block">
-              <div className="relative aspect-[4/5] w-full bg-white/5 shadow-2xl overflow-hidden border-4 border-white/10">
-                {mediatecaHeroImg && (
-                  <Image 
-                    src={mediatecaHeroImg.imageUrl} 
-                    alt="Mediateca Cultural" 
-                    fill 
-                    className="object-cover transition-transform duration-[20s] group-hover:scale-110"
-                    priority
-                  />
-                )}
-                <div className="absolute inset-0 bg-brand-black/20 mix-blend-multiply pointer-events-none" />
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal flex items-center justify-center p-8 text-white font-black text-sm uppercase tracking-widest text-center leading-none z-20 shadow-2xl transition-transform group-hover:scale-105">
-                NARRATIVAS <br /> DIGITALES
+            <RevealSection delay={300} className="lg:col-span-5 relative group hidden lg:flex flex-col items-end">
+              <div className="relative w-[65%]">
+                <div className="relative aspect-[4/5] w-full bg-white/5 shadow-2xl overflow-hidden border-4 border-white/10">
+                  {mediatecaHeroImg && (
+                    <Image 
+                      src={mediatecaHeroImg.imageUrl} 
+                      alt="Mediateca Cultural" 
+                      fill 
+                      className="object-cover transition-transform duration-[20s] group-hover:scale-110"
+                      priority
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-brand-black/20 mix-blend-multiply pointer-events-none" />
+                </div>
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal flex items-center justify-center p-8 text-white font-black text-sm uppercase tracking-widest text-center leading-none z-20 shadow-2xl transition-transform group-hover:scale-105">
+                  NARRATIVAS <br /> DIGITALES
+                </div>
               </div>
             </RevealSection>
           </div>
@@ -559,12 +562,12 @@ export default function MediatecaPage() {
                 ))}
               </div>
 
-              {/* BANNER INSTITUCIONAL UNIFICADO — DIAGRAMACIÓN ACTUALIZADA */}
+              {/* BANNER INSTITUCIONAL UNIFICADO */}
               <div className="relative w-[100vw] left-1/2 -translate-x-1/2 mt-20">
                 <div className="bg-white text-brand-black py-12 border-y border-gray-100">
                   <div className="container mx-auto px-6 max-w-7xl">
                     
-                    {/* 1. BLOQUE DE CRÉDITOS Y ORGANIZACIONES (Superior) */}
+                    {/* 1. BLOQUE DE CRÉDITOS Y ORGANIZACIONES */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 mb-16">
                       {/* Ficha Técnica */}
                       <RevealSection className="lg:col-span-5 space-y-10">
@@ -591,7 +594,7 @@ export default function MediatecaPage() {
                         </div>
                       </RevealSection>
 
-                      {/* Organizaciones */}
+                      {/* Organizaciones y Agradecimientos */}
                       <RevealSection delay={200} className="lg:col-span-7 space-y-10">
                         <div className="space-y-4">
                           <span className="inline-block bg-brand-teal text-white px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">ECOSISTEMA CULTURAL</span>
@@ -613,75 +616,67 @@ export default function MediatecaPage() {
                             </div>
                           ))}
                         </div>
+
+                        {/* Agradecimientos Especiales Directamente debajo de Orgs */}
+                        <div className="pt-4 border-t border-gray-100 space-y-2">
+                          <div className="flex items-center gap-2 text-brand-teal">
+                            <Sparkles size={14} />
+                            <span className="font-black text-[9px] uppercase tracking-[0.4em]">AGRADECIMIENTOS ESPECIALES</span>
+                          </div>
+                          
+                          <a 
+                            href="https://www.instagram.com/caminapalcentromed/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-6"
+                          >
+                            <div className="relative w-28 h-28 transition-transform group-hover:scale-105 shrink-0">
+                              <Image 
+                                src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-camina-pal-centro.png" 
+                                alt="Logo Caminá pa'l Centro" 
+                                fill 
+                                className="object-contain" 
+                              />
+                            </div>
+                            <div className="space-y-1">
+                              <p className="text-[9px] font-black text-brand-black/60 leading-tight max-w-sm uppercase tracking-tight">
+                                Iniciativa colaborativa para valorar un bien común: <br className="hidden md:block" />
+                                el centro de Medellín, el barrio de todos.
+                              </p>
+                            </div>
+                          </a>
+                        </div>
                       </RevealSection>
                     </div>
 
-                    {/* 2. LOGO PROYECTO Y AGRADECIMIENTOS (Medio) - DIAGRAMACIÓN COMPACTA */}
-                    <RevealSection className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center border-t border-gray-100 pt-8 mb-8">
-                      <div className="lg:col-span-6 flex justify-center lg:justify-start">
-                        <a 
-                          href="https://www.youtube.com/channel/UCqns8GIBFKxWKipQKIUSNPA" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="relative block w-[41rem] h-80 transition-transform hover:scale-105"
-                        >
-                          <Image 
-                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logo_El_Centro.jpeg" 
-                            alt="El Centro Vive y Resuena" 
-                            fill 
-                            className="object-contain" 
-                          />
-                        </a>
-                      </div>
-
-                      <div className="lg:col-span-6 flex flex-col gap-1 items-center lg:items-start">
-                        <div className="flex items-center gap-2 text-brand-teal mb-4">
-                          <Sparkles size={14} />
-                          <span className="font-black text-[9px] uppercase tracking-[0.4em]">AGRADECIMIENTOS ESPECIALES</span>
-                        </div>
-                        <a 
-                          href="https://www.instagram.com/caminapalcentromed/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="group block space-y-2 text-center lg:text-left"
-                        >
-                          <div className="relative w-64 h-64 transition-transform group-hover:scale-105 mx-auto lg:mx-0">
-                            <Image 
-                              src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-camina-pal-centro.png" 
-                              alt="Logo Caminá pa'l Centro" 
-                              fill 
-                              className="object-contain" 
-                            />
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-[9px] font-medium text-brand-black/60 leading-relaxed max-w-xl uppercase tracking-tight">
-                              Iniciativa colaborativa para valorar un bien común: el centro de Medellín, el barrio de todos.
-                            </p>
-                          </div>
-                        </a>
-                      </div>
+                    {/* LOGO EL CENTRO VIVE Y RESUENA (RESTAURADO DESPUÉS DE CRÉDITOS) */}
+                    <RevealSection className="border-t border-gray-100 pt-12 mb-12 flex justify-center">
+                      <a 
+                        href="https://www.youtube.com/channel/UCqns8GIBFKxWKipQKIUSNPA" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="relative block w-full max-w-[28rem] h-60 transition-transform hover:scale-105"
+                      >
+                        <Image 
+                          src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logo_El_Centro.jpg" 
+                          alt="El Centro Vive y Resuena" 
+                          fill 
+                          className="object-contain" 
+                        />
+                      </a>
                     </RevealSection>
 
-                    {/* 3. LOGOS APOYO GUBERNAMENTAL Y TEXTO REGLAMENTARIO (Final del bloque blanco) */}
-                    <RevealSection className="border-t border-gray-100 pt-16">
-                      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-8">
-                        <div className="relative w-56 h-24">
+                    {/* 3. LOGOS INSTITUCIONALES UNIFICADOS */}
+                    <RevealSection className="border-t border-gray-100 pt-12">
+                      <div className="flex justify-center mb-6">
+                        <div className="relative w-full max-w-xl h-24 md:h-28">
                           <Image 
-                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/logo-culturas-violeta.png" 
-                            alt="Ministerio de las Culturas" 
+                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logos_institucionales.png" 
+                            alt="Logos Institucionales" 
                             fill 
                             className="object-contain" 
                           />
                         </div>
-                        <div className="h-12 w-px bg-gray-200 hidden md:block" />
-                        <a href="https://fconvida.org/" target="_blank" rel="noopener noreferrer" className="relative w-[24rem] h-32 transition-transform hover:scale-105">
-                          <Image 
-                            src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logofcv.png" 
-                            alt="Fundación ConVida" 
-                            fill 
-                            className="object-contain" 
-                          />
-                        </a>
                       </div>
                       <div className="text-center max-w-4xl mx-auto mb-12">
                         <p className="text-[9px] md:text-[10px] font-black uppercase leading-relaxed tracking-wider text-brand-black/80">
@@ -697,11 +692,11 @@ export default function MediatecaPage() {
                   </div>
                 </div>
                 
-                {/* 4. BARRA DE CIERRE EDITORIAL (Negra) */}
-                <div className="bg-brand-black py-12 px-6 border-t-4 border-brand-gold">
-                  <p className="text-base md:text-xl font-black uppercase tracking-tighter text-white/90 text-center max-w-4xl mx-auto leading-tight">
-                    El Centro de Medellín vive y resuena EL SEMANARIO: <br />
-                    <span className="text-brand-gold italic">arte, patrimonio y corazón cultural de la ciudad</span>
+                {/* 4. BARRA DE CIERRE EDITORIAL */}
+                <div className="bg-[#9D6BA1] py-12 px-6 border-t-4 border-brand-gold">
+                  <p className="text-base md:text-xl font-black uppercase tracking-tighter text-white text-center max-w-4xl mx-auto leading-tight">
+                    EL CENTRO DE MEDELLÍN VIVE Y RESUENA EL SEMANARIO: <br />
+                    <span className="italic text-white">ARTE, PATRIMONIO Y CORAZÓN CULTURAL DE LA CIUDAD</span>
                   </p>
                 </div>
               </div>
