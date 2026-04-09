@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   keywords: ['Medellín', 'Cultura Medellín', 'Agenda Cultural', 'Memoria Urbana', 'Patrimonio', 'El Semanario HOY', 'Archivo Vivo'],
   authors: [{ name: 'El Semanario HOY' }],
   icons: {
-    icon: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
-    shortcut: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
-    apple: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
+    icon: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
+    shortcut: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
+    apple: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
   },
   openGraph: {
     title: 'El Semanario HOY - Archivo Vivo del Corazón de Medellín',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png',
+        url: 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png',
         width: 800,
         height: 800,
         alt: 'El Semanario HOY',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'El Semanario HOY | Cultura y Memoria Urbana',
     description: 'Revitalizamos la memoria urbana a través de una narrativa transmedia que conecta un archivo cultural de la década de los 90 con la escena cultural actual de la ciudad de Medellín.',
-    images: ['https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png'],
+    images: ['https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png'],
   },
 };
 
@@ -58,7 +58,7 @@ export default function RootLayout({
           crossOrigin=""
         />
         {/* Etiqueta de enlace explícita para forzar el favicon oficial */}
-        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/favicon.png" />
+        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/icono-peq.png" />
       </head>
       <body className="font-body antialiased selection:bg-brand-gold selection:text-white bg-white">
         <FirebaseClientProvider>
