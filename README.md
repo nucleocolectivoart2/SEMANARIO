@@ -1,7 +1,7 @@
 # El Semanario HOY: Archivo Vivo
 
 ## 📌 Descripción del Proyecto
-**El Semanario HOY** es una plataforma transmedia diseñada para revitalizar la memoria cultural del Centro de Medellín. El proyecto transforma el legado histórico del "Semanario Cultural" (1990-2003) en un **Archivo Vivo** bajo el concepto de **Sociedad 5.0**, integrando repositorios digitales, narrativas audiovisuales contemporáneas y herramientas de Inteligencia Artificial para conectar diversas generaciones con el corazón de la ciudad.
+**El Semanario HOY** es una plataforma transmedia diseñada para revitalizar la memoria cultural de Medellín. El proyecto transforma el legado histórico del "Semanario Cultural" (1990-2000) en un **Archivo Vivo** bajo el concepto de **Sociedad 5.0**, integrando repositorios digitales, narrativas audiovisuales contemporáneas y herramientas de Inteligencia Artificial para conectar diversas generaciones con el corazón de la ciudad.
 
 Esta aplicación funciona como el eje central de un ecosistema que incluye podcasts, micro-documentales, cartografía social y una agenda cultural activa.
 
@@ -66,7 +66,7 @@ Desarrollado específicamente para el proyecto por **Núcleo Colectivo**, el wid
 ## 🤝 Créditos
 -   **Dirección General:** María Victoria Álvarez Gómez.
 -   **Ejecución:** Corporación Gaia.
--   **Desarrollo Tecnológico y Creativo:** Manuel Palacio [Núcleo Colectivo](https://nucleocolectivo.com/). 2026
+-   **Desarrollo Tecnológico y Creativo:** MANUEL PALACIO [Núcleo Colectivo](https://nucleocolectivo.com/).
 -   **Apoyo Institucional:** Proyecto apoyado por el Ministerio de las Culturas, las Artes y los Saberes (Programa Nacional de Concertación Cultural).
 
 ---
