@@ -28,7 +28,7 @@ const FRAGMENTOS_BASE = "https://raw.githubusercontent.com/nucleocolectivoart2/S
 export const officialVideos = [
   { id: 'v-social-vive', title: 'SOCIALIZACIÓN DEL PROYECTO', season: 'DESTACADO', youtubeId: 'g23v49jUT1s', description: 'Presentación oficial de la iniciativa cultural y periodística que busca revitalizar el corazón de Medellín.', project: 'centro-vive' },
   { id: 'v-t2-reg', title: 'EL CENTRO VIVE Y RESUENA: REGISTRO ACTUAL', season: 'TEMPORADA 2 (2026)', youtubeId: 'l530ZiOZjQk', description: 'Un faro en el corazón de Medellín - Registro 2024.', project: 'centro-vive' },
-  { id: 'v-t2-confiar', title: 'CASA DE LA CULTURA Y LA COOPERACIÓN - CONFIAR', season: 'TEMPORADA 2 (2026)', youtubeId: 'pjaVRc87HXs', description: 'Registro patrimonial 2024 en el corazón de la ciudad.', project: 'centro-vive' },
+  { id: 'v-t2-confiar', title: 'CASA DE LA CULTURA y LA COOPERACIÓN - CONFIAR', season: 'TEMPORADA 2 (2026)', youtubeId: 'pjaVRc87HXs', description: 'Registro patrimonial 2024 en el corazón de la ciudad.', project: 'centro-vive' },
   { id: 'v-t2-homero', title: 'LA CASA CULTURAL DEL TANGO - HOMERO MANZI', season: 'TEMPORADA 2 (2026)', youtubeId: 'H-xpovnPZaQ', description: 'La esquina del tango en Medellín. Tradición y bohemia.', project: 'centro-vive' },
   { id: 'v-t2-tpm', title: 'TEATRO POPULAR DE MEDELLÍN', season: 'TEMPORADA 2 (2026)', youtubeId: 'VDFE_1Cgl2g', description: 'Donde el silencio habla y la palabra vuela.', project: 'centro-vive' },
   { id: 'v-t2-pablo', title: 'TEATRO PABLO TOBÓN URIBE', season: 'TEMPORADA 2 (2026)', youtubeId: 'lrrYQthosl8', description: 'En el alma de Medellín. Un recorrido por la gestión cultural actual.', project: 'centro-vive' },
@@ -304,13 +304,55 @@ export default function MediatecaPage() {
                           <span className="inline-block bg-brand-teal text-white px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.3em]">ECOSISTEMA CULTURAL</span>
                           <h2 className="text-3xl font-black uppercase tracking-tighter leading-none mt-4">ORGANIZACIONES PARTICIPANTES</h2>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {["Agua Dulce Restaurante", "Donde Robin Bar – Tango Bar", "Corporación Cultural Viva Palabra", "El Club del Jazz", "Centro Cultural La Huerta", "La Casa Centro Cultural", "Pequeño Teatro", "Teatro Casa Clown", "Teatro Matacandelas"].map((org, i) => (
-                            <div key={i} className="bg-white p-4 border border-gray-100 hover:border-brand-teal transition-all group shadow-sm">
-                              <div className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-brand-teal rounded-full" /><span className="font-bold text-xs uppercase tracking-tight">{org}</span></div>
+                        
+                        <div className="space-y-8">
+                          {/* Temporada 1 */}
+                          <div className="space-y-4">
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-teal border-b border-gray-100 pb-2">Temporada 1</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {[
+                                "Centro Cultural La Huerta",
+                                "Restaurante Bar Agua Dulce",
+                                "Teatro Casa Clown",
+                                "Teatro Matacandelas",
+                                "Corporación Cultural Viva Palabra",
+                                "Pequeño Teatro",
+                                "El club del Jazz",
+                                "La Casa Centro Cultural"
+                              ].map((org, i) => (
+                                <div key={i} className="bg-white p-3 border border-gray-100 hover:border-brand-teal transition-all group shadow-sm">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-1 h-1 bg-brand-teal rounded-full" />
+                                    <span className="font-bold text-[10px] uppercase tracking-tight">{org}</span>
+                                  </div>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
+
+                          {/* Temporada 2 */}
+                          <div className="space-y-4">
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-gold border-b border-gray-100 pb-2">Temporada 2</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {[
+                                "Teatro Popular de Medellín",
+                                "Palacio de Bellas Artes",
+                                "Edificio Universidad de Antioquia. Programa Cultura Centro",
+                                "Casa Cultural del Tango Homero Manzi",
+                                "Casa de la Cultura y la Cooperación Confiar",
+                                "Teatro Pablo Tobón Uribe"
+                              ].map((org, i) => (
+                                <div key={i} className="bg-white p-3 border border-gray-100 hover:border-brand-gold transition-all group shadow-sm">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-1 h-1 bg-brand-gold rounded-full" />
+                                    <span className="font-bold text-[10px] uppercase tracking-tight">{org}</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
+
                         <div className="pt-4 border-t border-gray-100 space-y-2">
                           <div className="flex items-center gap-2 text-brand-teal"><Sparkles size={14} /><span className="font-black text-[9px] uppercase tracking-[0.4em]">AGRADECIMIENTOS ESPECIALES</span></div>
                           <div className="group flex items-center gap-6">
