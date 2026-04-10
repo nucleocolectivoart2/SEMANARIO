@@ -5,8 +5,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { RadioWidget } from '@/components/RadioWidget';
 import { Footer } from '@/components/Footer';
 
-// URL oficial del favicon desde el repositorio GitHub (versión raw para máxima compatibilidad)
-const ICON_URL = 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/src/app/favicon.ico?v=6';
+// URL oficial del favicon desde el repositorio GitHub (versión raw)
+const ICON_URL = 'https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/src/app/favicon.ico?v=5';
 
 export const metadata: Metadata = {
   title: 'El Semanario HOY | Archivo Vivo y Cultura de Medellín',
@@ -69,7 +69,7 @@ export default function RootLayout({
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         />
-        {/* Inyección forzada de favicon al final del head para máxima prioridad sobre archivos locales */}
+        {/* Inyección forzada de favicon al final del head para máxima prioridad */}
         <link rel="icon" href={ICON_URL} sizes="any" type="image/x-icon" />
         <link rel="shortcut icon" href={ICON_URL} type="image/x-icon" />
         <link rel="apple-touch-icon" href={ICON_URL} />
