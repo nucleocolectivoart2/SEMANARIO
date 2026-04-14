@@ -12,7 +12,7 @@ import {
   MapPin, Eye, Info, Volume2, SkipForward, SkipBack,
   Clock, Activity, Film, Library, Image as ImageIcon,
   ChevronRight, Layers, Target, Heart, Zap, Users,
-  Facebook, Instagram, Mail, Quote
+  Facebook, Instagram, Mail, Quote, Camera
 } from 'lucide-react';
 import Image from 'next/image';
 import { useCollection, useFirestore, useMemoFirebase } from '@/firebase';
@@ -21,6 +21,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Slider } from '@/components/ui/slider';
+import { Button } from '@/components/ui/button';
 
 const COLLAGE_URL = "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/archivo/portadas/collage.jpg";
 const FRAGMENTOS_BASE = "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/mas%20imagenes";
@@ -35,6 +36,7 @@ export const officialVideos = [
   { id: 'v-t2-homero', title: 'LA CASA CULTURAL DEL TANGO - HOMERO MANZI', season: 'TEMPORADA 2 (2026)', youtubeId: 'H-xpovnPZaQ', description: 'La esquina del tango en Medellín. Tradición y bohemia.', project: 'centro-vive' },
   { id: 'v-t2-tpm', title: 'TEATRO POPULAR DE MEDELLÍN', season: 'TEMPORADA 2 (2026)', youtubeId: 'VDFE_1Cgl2g', description: 'Donde el silencio habla y la palabra vuela.', project: 'centro-vive' },
   { id: 'v-t2-pablo', title: 'TEATRO PABLO TOBÓN URIBE', season: 'TEMPORADA 2 (2026)', youtubeId: 'lrrYQthosl8', description: 'En el alma de Medellín. Un recorrido por la gestión cultural actual.', project: 'centro-vive' },
+  { id: 'v-t2-bellas-artes', title: 'PALACIO DE BELLAS ARTES: 100 AÑOS PERFILANDO EL ARTE EN MEDELLÍN', season: 'TEMPORADA 2 (2026)', youtubeId: 'b1-7M43vr0U', description: 'Un siglo de historia, formación y creación artística en el corazón de la ciudad.', project: 'centro-vive' },
 
   // TEMPORADA 1 (2025)
   { id: 'v-t1-9', title: 'EPISODIO 9: LA HUERTA', season: 'TEMPORADA 1 (2025)', youtubeId: 'YaLSyFGmT5Y', description: 'Un espacio cultural en el corazón de Medellín. Soberanía alimentaria y cultura.', project: 'centro-vive' },
@@ -338,7 +340,7 @@ export default function MediatecaPage() {
     },
     { 
       id: 'documentales', 
-      label: 'SERIE: TRES\nCORTOMETRAJES', 
+      label: 'SERIE: RETRATO\nAUDIOVISUAL', 
       icon: Video, 
       color: 'bg-brand-gold', 
       hoverColor: 'hover:bg-brand-gold',
@@ -580,14 +582,14 @@ export default function MediatecaPage() {
                             { role: "DIRECCIÓN", name: "María Victoria Álvarez Gómez" },
                             { role: "REALIZACIÓN AUDIOVISUAL Y EDICIÓN", name: "Carlos Andrés Londoño Ruiz / @carlos.londor" },
                             { role: "PRODUCCIÓN", name: "María Cecilia Castaño Rodríguez / @duna_movil" },
-                            { role: "COMUNICACIONES", name: "Estefany Rivera Orrego • Natalia Vélez Sepúlveda • Paula Andrea Úsuga Álvarez" },
+                            { role: "COMUNICACIONES", name: "• Estefany Rivera Orrego\n• Natalia Vélez Sepúlveda\n• Paula Andrea Úsuga Álvarez." },
                             { role: "IMÁGENES DRONE", name: "John Cuervo Moreno / @_cuervofilms" },
                             { role: "LOCUCIÓN", name: "Paula Andrea Úsuga Álvarez" },
                             { role: "TÉCNICO DE SONIDO", name: "Julián Álvarez Kusy" }
                           ].map((m, i) => (
                             <div key={i} className="border-l-4 border-brand-gold pl-6 space-y-1 group">
                               <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em] group-hover:text-brand-black transition-colors">{m.role}</span>
-                              <p className="text-sm font-black uppercase tracking-tighter">{m.name}</p>
+                              <p className="text-base md:text-lg font-black uppercase tracking-tighter whitespace-pre-line leading-tight">{m.name}</p>
                             </div>
                           ))}
                         </div>
@@ -744,7 +746,7 @@ export default function MediatecaPage() {
                       <div>
                         <Badge className="bg-brand-gold text-brand-black rounded-none text-[8px] tracking-[0.3em] mb-3 uppercase border-none">SINTONIZANDO</Badge>
                         <h2 className="text-xl lg:text-3xl font-black uppercase tracking-tighter text-white leading-tight">{activePodcast.title}</h2>
-                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-2">{activePodcast.duration} • VOCES DEL CENTRO</p>
+                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-2">{activePodcast.duration} • VOCES DE LA CIUDAD</p>
                       </div>
                       <div className="space-y-3">
                         <Slider value={[progress]} max={100} step={0.1} onValueChange={handleSeek} className="cursor-pointer" />
@@ -872,7 +874,7 @@ export default function MediatecaPage() {
               <div className="max-w-6xl mx-auto">
                 <div className="bg-brand-gold text-brand-black text-center lg:text-left flex flex-col lg:flex-row relative overflow-hidden group shadow-[20px_20px_0px_0px_rgba(217,160,47,0.1)]">
                   <div className="relative w-full lg:w-1/2 aspect-[4/5] lg:aspect-auto overflow-hidden bg-brand-black">
-                     <img src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/archivo/portadas/collage.jpg" className="object-cover w-full h-full opacity-80" alt="Ebook Cover" />
+                     <img src={COLLAGE_URL} className="object-cover w-full h-full opacity-80" alt="Ebook Cover" />
                      <div className="absolute bottom-6 left-6 lg:bottom-10 lg:left-10 z-20">
                         <Badge className="bg-white text-brand-black font-black px-4 py-1 mb-4 rounded-none text-[9px] tracking-widest shadow-xl">PRÓXIMO LANZAMIENTO</Badge>
                         <h2 className="text-white font-black text-3xl lg:text-4xl tracking-tighter uppercase leading-[0.8]">ARCHIVO <br /> VIVO</h2>
@@ -885,10 +887,10 @@ export default function MediatecaPage() {
                          <span className="text-[10px] lg:text-[12px] font-black uppercase tracking-[0.4em]">E-BOOK OFICIAL • HOY</span>
                       </div>
                       <h2 className="text-3xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9]">ARCHIVO VIVO: UNA HISTORIA DEL SEMANARIO HOY</h2>
-                      <p className="font-bold text-base lg:text-lg leading-relaxed max-w-xl">Un PDF interactivo que funciona como puerta de entrada para públicos que se acercan por primera vez al archivo.</p>
-                      <button className="flex items-center gap-4 justify-center bg-brand-black text-white px-8 py-5 font-black uppercase text-[10px] tracking-[0.3em] hover:bg-white hover:text-brand-black transition-all shadow-2xl w-full lg:w-fit">
-                        SOLICITAR PRE-ACCESO <Download size={18} />
-                      </button>
+                      <p className="font-bold text-base lg:text-lg leading-relaxed max-w-xl">Un viaje interactivo de 15 páginas por la historia del Semanario Cultural, sus protagonistas y su impacto en la formación de públicos en Medellín.</p>
+                      <Button className="bg-brand-black text-white hover:bg-brand-ash hover:text-white h-16 rounded-none px-10 font-black uppercase tracking-[0.3em] text-[11px] transition-all shadow-2xl w-full lg:w-fit group">
+                        DESCARGAR E-BOOK PDF <Download size={18} className="ml-4 group-hover:translate-y-1 transition-transform" />
+                      </Button>
                     </div>
                   </div>
                 </div>

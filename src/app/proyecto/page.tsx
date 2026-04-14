@@ -53,7 +53,7 @@ export default function ProyectoPage() {
                         SEMANARIO HOY: ARCHIVO VIVO
                       </h2>
                       <p className="text-lg md:text-xl font-bold italic text-brand-black/60 leading-tight normal-case">
-                        Una narrativa transmedia que revitaliza el archivo histórico del Semanario Hoy (1990-2000) y lo expande hacia el presente (2026), documentando el tejido comunitario y cultural del centro de Medellín.
+                      Una narrativa transmedia que revitaliza el archivo histórico del Semanario Cultural (1990-2000) y lo trae al presente (2026), activando la memoria y cultural de la ciudad y fortaleciendo su identidad.
                       </p>
                     </div>
                   </div>
@@ -152,8 +152,8 @@ export default function ProyectoPage() {
                     color: "bg-brand-red"
                   },
                   { 
-                    title: "SERIE: TRES CORTOMETRAJES", 
-                    desc: "Mirada cinematográfica a tres organizaciones contemporáneas con estructura de tres actos: Origen, Presente y Futuro.",
+                    title: "RETRATO AUDIOVISUAL", 
+                    desc: "Micro documentales sobre organizaciones que  hoy siguen construyendo la identidad cultural de Medellín.",
                     icon: Video,
                     color: "bg-brand-teal"
                   },

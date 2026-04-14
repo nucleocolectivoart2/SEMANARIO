@@ -175,7 +175,7 @@ export function Timeline() {
                 <div className="absolute inset-0 bg-brand-purple/10 mix-blend-multiply pointer-events-none" />
               </div>
               <div className="absolute -bottom-10 -right-6 md:-right-10 w-40 h-40 bg-brand-purple flex items-center justify-center p-8 text-white font-black text-sm uppercase tracking-widest text-center leading-none z-20 shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)] transition-transform group-hover:scale-105">
-                REGISTRO <br /> VIVO <br /> 1990-2003
+                REGISTRO <br /> VIVO <br /> 1990-2000
               </div>
             </RevealSection>
           </div>
@@ -192,7 +192,7 @@ export function Timeline() {
               </div>
               <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter leading-none">ANTES DE EXPLORAR EL ARCHIVO...</h2>
               <p className="text-lg font-medium text-white/80 leading-relaxed italic">
-                "Descarga nuestro E-book interactivo para entender la historia, los protagonistas y el valor de estos archivos comunitarios en Medellín."
+                "Descarga nuestro E-book interactivo para entender la historia, los protagonistas y el valor de los archivos de una década de la cultura en Medellín."
               </p>
            </div>
            <Link href="/mediateca" className="relative z-10 bg-white text-brand-purple px-10 py-5 font-black uppercase text-[11px] tracking-widest hover:bg-brand-black hover:text-white transition-all shadow-xl whitespace-nowrap">

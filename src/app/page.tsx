@@ -223,21 +223,21 @@ export default function Home() {
             {[
               { 
                 title: "ARCHIVO VIVO", 
-                desc: "Repositorio digital de ediciones históricas del Semanario Hoy (1990-2003).",
+                desc: "Repositorio digital de ediciones históricas del Semanario Hoy (1990-2000).",
                 icon: History,
                 href: "/archivo",
                 imgId: "archive-photo"
               },
               { 
-                title: "VOCES DEL CENTRO", 
+                title: "VOCES DE LA CIUDAD", 
                 desc: "5 episodios de podcast que reconstruyen el tejido cultural de la ciudad.",
                 icon: Users,
                 href: "/mediateca",
                 imgId: "team-maria"
               },
               { 
-                title: "RESONANCIA VIDEO", 
-                desc: "3 cortometrajes documentales sobre organizaciones que resisten hoy.",
+                title: "RETRATO AUDIOVISUAL", 
+                desc: "Micro documentales sobre organizaciones que  hoy siguen construyendo la identidad cultural de Medellín.",
                 icon: Play,
                 href: "/mediateca",
                 imgId: "multimedia-video"

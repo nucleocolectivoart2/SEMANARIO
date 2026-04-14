@@ -118,7 +118,7 @@ export function Multimedia() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <RevealSection className="lg:col-span-7 space-y-10">
               <Badge className="bg-brand-teal text-white px-6 py-2 rounded-none text-[10px] font-black uppercase tracking-[0.5em] w-fit mb-8">
-                RESONANCIA VIDEO • HOY
+              RETRATO AUDIOVISUAL 
               </Badge>
               <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.8] uppercase">
                 MICRO <br />

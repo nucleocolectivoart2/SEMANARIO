@@ -163,7 +163,7 @@ export const timelineEvents: TimelineEvent[] = [
     year: '2026',
     title: 'EL SEMANARIO HOY: UNIVERSO TRANSMEDIA',
     description: 'Lanzamiento de la nueva etapa digital y narrativa expandida del proyecto.',
-    fullDescription: 'Bajo el concepto de Sociedad 5.0, el Semanario Hoy renace como un archivo vivo y activo. Esta nueva fase integra el repositorio histórico con producciones contemporáneas como la serie de podcasts "Voces del Centro" y los micro-documentales "Resonancia", financiados por Crea Digital.',
+    fullDescription: 'Bajo el concepto de Sociedad 5.0, el Semanario Hoy renace como un archivo vivo y activo. Esta nueva fase integra el repositorio histórico con producciones contemporáneas como la serie de podcasts "VOCES DE LA CIUDAD" y los micro-documentales "Resonancia", financiados por Crea Digital.',
     category: 'PRESENTE',
     iconType: 'sparkles',
     imageUrl: `${MAS_IMG_BASE}/fragmentos-de-memoria-archivo-vivo-4.png`
