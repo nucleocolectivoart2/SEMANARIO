@@ -1,7 +1,7 @@
 # El Semanario HOY: Archivo Vivo
 
 ## 📌 Descripción del Proyecto
-**El Semanario HOY** es una plataforma transmedia diseñada para revitalizar la memoria cultural de Medellín. El proyecto transforma el legado histórico del "Semanario Cultural" (1990-2000) en un **Archivo Vivo** bajo el concepto de **Sociedad 5.0**, integrando repositorios digitales, narrativas audiovisuales contemporáneas y herramientas de Inteligencia Artificial para conectar diversas generaciones con el corazón de la ciudad.
+**El Semanario HOY** es una plataforma transmedia diseñada para revitalizar la memoria cultural del Centro de Medellín. El proyecto transforma el legado histórico del "Semanario Cultural" (1990-2000) en un **Archivo Vivo** bajo el concepto de **Sociedad 5.0**, integrando repositorios digitales, narrativas audiovisuales contemporáneas y herramientas de Inteligencia Artificial para conectar diversas generaciones con el corazón de la ciudad.
 
 Esta aplicación funciona como el eje central de un ecosistema que incluye podcasts, micro-documentales, cartografía social y una agenda cultural activa.
 
@@ -25,7 +25,7 @@ El proyecto se divide en secciones clave que componen el universo narrativo:
 1.  **Archivo Vivo (Impreso):** Digitalización y visualización de ediciones históricas en formato PDF interactivo.
 2.  **Ruta de la Memoria (Mapa):** Cartografía interactiva con más de 30 hitos culturales y patrimoniales georreferenciados en el centro de Medellín.
 3.  **Mediateca (Resonancia):**
-    -   **Voces del Centro:** Serie de podcasts de 5 episodios.
+    -   **VOCES DE LA CIUDAD:** Serie de podcasts de 5 episodios.
     -   **Tres Cortometrajes:** Serie cinematográfica producida para Crea Digital 2026.
     -   **NC Radio:** Widget de radio sintonizado con frecuencias culturales globales y locales.
 4.  **Sabías Qué (Gamificación):** Sistema de descubrimiento de fragmentos de curiosidad histórica para fomentar la participación ciudadana.
@@ -66,7 +66,7 @@ Desarrollado específicamente para el proyecto por **Núcleo Colectivo**, el wid
 ## 🤝 Créditos
 -   **Dirección General:** María Victoria Álvarez Gómez.
 -   **Ejecución:** Corporación Gaia.
--   **Desarrollo Tecnológico y Creativo:** MANUEL PALACIO [Núcleo Colectivo](https://nucleocolectivo.com/).
+-   **Desarrollo Tecnológico y Creativo:** [Núcleo Colectivo](https://nucleocolectivo.com/).
 -   **Apoyo Institucional:** Proyecto apoyado por el Ministerio de las Culturas, las Artes y los Saberes (Programa Nacional de Concertación Cultural).
 
 ---
