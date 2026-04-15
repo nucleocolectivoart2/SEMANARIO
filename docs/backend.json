@@ -1,0 +1,100 @@
+
+{
+  "entities": {
+    "CulturalEvent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CulturalEvent",
+      "type": "object",
+      "description": "Represents a cultural activity or event happening in the center of Medellín, forming part of the monthly cultural programming and digital archive.",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "startDate": { "type": "string", "format": "date-time" },
+        "endDate": { "type": "string", "format": "date-time" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string", "format": "uri" },
+        "locationName": { "type": "string" },
+        "placeId": { "type": "string" },
+        "sourceUrl": { "type": "string", "format": "uri" }
+      },
+      "required": ["id", "title", "description", "startDate", "category"]
+    },
+    "MultimediaContent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "MultimediaContent",
+      "type": "object",
+      "description": "Represents integrated multimedia content such as embedded YouTube videos and curated audio podcasts.",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["video", "podcast"] },
+        "url": { "type": "string", "format": "uri" },
+        "thumbnailUrl": { "type": "string", "format": "uri" },
+        "publicationDate": { "type": "string", "format": "date-time" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "title", "type", "url", "category"]
+    },
+    "MemoryPlace": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "MemoryPlace",
+      "type": "object",
+      "description": "Represents an emblematic place in Medellín's center.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "address": { "type": "string" }
+      },
+      "required": ["id", "name", "description", "latitude", "longitude"]
+    },
+    "ArchiveItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ArchiveItem",
+      "type": "object",
+      "description": "Representa una edición histórica o pieza de la Memoria Impresa del Semanario.",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "year": { "type": "string" },
+        "imageUrl": { "type": "string", "format": "uri" },
+        "pdfUrl": { "type": "string", "format": "uri" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "title", "year", "imageUrl"]
+    }
+  },
+  "auth": {
+    "providers": ["password", "anonymous"]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/cultural_events/{eventId}",
+        "definition": { "entityName": "CulturalEvent", "description": "Agenda cultural." }
+      },
+      {
+        "path": "/multimedia_content/{contentId}",
+        "definition": { "entityName": "MultimediaContent", "description": "Videos y podcasts." }
+      },
+      {
+        "path": "/memory_places/{placeId}",
+        "definition": { "entityName": "MemoryPlace", "description": "Lugares del mapa." }
+      },
+      {
+        "path": "/archive_items/{itemId}",
+        "definition": { "entityName": "ArchiveItem", "description": "Archivo histórico (Memoria Impresa)." }
+      },
+      {
+        "path": "/admin_users/{adminId}",
+        "definition": { "entityName": "AdminUser", "description": "Registro de administradores." }
+      }
+    ]
+  }
+}
