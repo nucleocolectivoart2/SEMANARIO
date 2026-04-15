@@ -14,62 +14,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from '@/lib/utils';
-import { BrandStrip } from '@/components/BrandStrip';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { RevealSection } from '@/components/RevealSection';
-
-function getYouTubeId(url: string) {
-  if (!url) return null;
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|live\/)([^#&?]*).*/;
-  const match = url.match(regExp);
-  if (match && match[2].length === 11) return match[2];
-  return null;
-}
-
-export const officialVideos = [
-  { 
-    id: 'v-resumen', 
-    title: 'EL CENTRO DE MEDELLÍN VIVE Y RESUENA', 
-    season: 'DESTACADO • HOY', 
-    youtubeId: 'FaGMpv2db_M', 
-    description: 'El Centro Vive y Resuena con el Semanario Medellín y Fundación Con Vida. Registro periodístico del corazón de la ciudad.' 
-  },
-  { 
-    id: 'v-2026-1', 
-    title: 'CORTOMETRAJE 1: ORGANIZACIÓN A', 
-    season: 'PRODUCCIÓN 2026', 
-    description: 'Nueva narrativa transmedia enfocada en el origen y resistencia de la primera organización seleccionada para Crea Digital.',
-    thumbnailUrl: 'https://picsum.photos/seed/crea1/800/450',
-    isPlaceholder: true 
-  },
-  { 
-    id: 'v-2026-2', 
-    title: 'CORTOMETRAJE 2: ORGANIZACIÓN B', 
-    season: 'PRODUCCIÓN 2026', 
-    description: 'Exploración cinematográfica del presente y futuro de una de las organizaciones pilares del ecosistema cultural del centro.',
-    thumbnailUrl: 'https://picsum.photos/seed/crea2/800/450',
-    isPlaceholder: true 
-  },
-  { 
-    id: 'v-2026-3', 
-    title: 'CORTOMETRAJE 3: ORGANIZACIÓN C', 
-    season: 'PRODUCCIÓN 2026', 
-    description: 'Cierre de la trilogía de cortometrajes 2026, conectando la memoria histórica con las nuevas ciudadanías.',
-    thumbnailUrl: 'https://picsum.photos/seed/crea3/800/450',
-    isPlaceholder: true 
-  },
-  { id: 'v-t2-1', title: 'EL CENTRO DE MEDELLÍN VIVE: T2 - INTRO', season: 'TEMPORADA 2', youtubeId: 'lrrYQthosl8', description: 'En el alma de Medellín con El Semanario HOY. Un recorrido por la resistencia cultural.' },
-  { id: 'v-t2-2', title: 'EL CENTRO VIVE Y RESUENA: REGISTRO ACTUAL', season: 'TEMPORADA 2', youtubeId: 'l530ZiOZjQk', description: 'Un faro en el corazón de Medellín - Registro 2024.' },
-  { id: 'v-t1-9', title: 'EPISODIO 9: LA HUERTA', season: 'TEMPORADA 1', youtubeId: 'YaLSyFGmT5Y', description: 'Un espacio cultural en el corazón de Medellín. Soberanía alimentaria y cultura.' },
-  { id: 'v-t1-8', title: 'EPISODIO 8: AGUA DULCE', season: 'TEMPORADA 1', youtubeId: 'vgiHCjG4OzY', description: 'Un oasis con tres experiencias en el Parque del Periodista.' },
-  { id: 'v-t1-7', title: 'EPISODIO 7: VIVA PALABRA', season: 'TEMPORADA 1', youtubeId: 'jaS5sXS67Xc', description: '28 años contando cuentos en el centro de Medellín.' },
-  { id: 'v-t1-6', title: 'EPISODIO 6: ARTE URBANO', season: 'TEMPORADA 1', youtubeId: 'KdFvqG0qUlQ', description: 'La calle como lienzo de expresión cultural.' },
-  { id: 'v-t1-5', title: 'EPISODIO 5: CASA DEL ENCUENTRO', season: 'TEMPORADA 1', youtubeId: 'zMFHJfp6st4', description: 'Diálogos y saberes en un espacio histórico.' },
-  { id: 'v-t1-4', title: 'EPISODIO 4: PEQUEÑO TEATRO', season: 'TEMPORADA 1', youtubeId: '3nwMCxiW57E', description: '45 años de arte dramático y resistencia cultural.' },
-  { id: 'v-t1-3', title: 'EPISODIO 3: TRADICIÓN', season: 'TEMPORADA 1', youtubeId: 'l1nhyWNDgp0', description: 'Historias que definen nuestra identidad.' },
-  { id: 'v-t1-2', title: 'EPISODIO 2: REGISTRO', season: 'TEMPORADA 1', youtubeId: 'D_7TBSnII94', description: 'Primeros pasos del proyecto El Centro Vive.' },
-  { id: 'v-t1-1', title: 'EPISODIO 1: EL ORIGEN', season: 'TEMPORADA 1', youtubeId: 'FaGMpv2db_M', description: 'El inicio de una historia de resistencia cultural en el corazón de la ciudad.' }
-];
+import { officialVideos, getYouTubeId } from '@/lib/media-data';
 
 export function Multimedia() {
   const db = useFirestore();
@@ -93,10 +40,7 @@ export function Multimedia() {
         isPlaceholder: false
       }));
 
-    const userUrls = new Set(userVideos.map(v => v.url));
-    const filteredOfficial = officialVideos.filter(v => !userUrls.has(v.url || (v.youtubeId ? `https://www.youtube.com/watch?v=${v.youtubeId}` : '')));
-
-    return [...filteredOfficial, ...userVideos];
+    return [...officialVideos, ...userVideos];
   }, [firestoreContent]);
 
   const handleVideoClick = (video: any) => {
@@ -142,9 +86,6 @@ export function Multimedia() {
                   />
                 )}
                 <div className="absolute inset-0 bg-brand-black/20 mix-blend-multiply pointer-events-none" />
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-brand-teal flex items-center justify-center p-8 text-white font-black text-sm uppercase tracking-widest text-center leading-none z-10 shadow-xl transition-transform group-hover:scale-105">
-                  RESONANCIA <br /> VIDEO
-                </div>
               </div>
             </RevealSection>
           </div>

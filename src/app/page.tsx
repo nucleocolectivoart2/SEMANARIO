@@ -57,7 +57,7 @@ export function HomeHero() {
         <div className="flex-[1.5]" />
 
         <RevealSection className="space-y-0 flex flex-col items-center w-full max-w-[95vw]">
-          <h1 className="flex flex-col items-center select-none font-black uppercase tracking-tighter leading-[0.85] text-[54px] xs:text-[64px] sm:text-[80px] md:text-[115px] lg:text-[140px]">
+          <h1 className="flex flex-col items-center select-none font-black uppercase tracking-tighter leading-[0.85] text-[50px] xs:text-[60px] sm:text-[75px] md:text-[100px] lg:text-[120px]">
             <span className="text-white">EL</span>
             <span className="text-white">SEMANARIO</span>
             <span className="text-brand-gold">HOY</span>
@@ -131,20 +131,20 @@ export function LegacySection() {
   return (
     <section className="relative min-h-screen w-full bg-white overflow-hidden pt-20 md:pt-32 pb-20">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7 space-y-8 z-10">
             <RevealSection>
               <div className="space-y-0">
-                <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.8] text-brand-black tracking-tighter uppercase">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.8] text-brand-black tracking-tighter uppercase">
                   MÁS QUE
                 </h1>
-                <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.8] text-brand-gold tracking-tighter uppercase">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.8] text-brand-gold tracking-tighter uppercase">
                   UNA
                 </h1>
-                <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.8] text-brand-gold tracking-tighter uppercase">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.8] text-brand-gold tracking-tighter uppercase">
                   AGENDA,
                 </h1>
-                <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.8] text-brand-black tracking-tighter uppercase">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.8] text-brand-black tracking-tighter uppercase">
                   UN PUENTE
                 </h1>
               </div>
@@ -152,13 +152,13 @@ export function LegacySection() {
 
             <RevealSection delay={300} className="pt-8 md:pt-12">
               <div className="flex gap-4 md:gap-6 items-start">
-                <div className="w-2 md:w-3 h-16 md:h-20 bg-brand-teal shrink-0 mt-2" />
-                <p className="text-2xl md:text-4xl font-black tracking-tighter text-brand-black leading-[0.9] max-w-xl">
+                <div className="w-2 md:w-3 h-12 md:h-16 bg-brand-teal shrink-0 mt-2" />
+                <p className="text-xl md:text-2xl font-black tracking-tighter text-brand-black leading-[0.9] max-w-xl">
                   El Semanario Hoy quiere <br />
                   <span className="text-brand-teal">conectarte con la escena cultural actual</span>
                 </p>
               </div>
-              <p className="mt-8 text-lg md:text-xl font-bold italic text-brand-black/70 max-w-xl normal-case leading-relaxed">
+              <p className="mt-8 text-base md:text-lg font-bold italic text-brand-black/70 max-w-xl normal-case leading-relaxed">
                 "Conectar a diversas generaciones con las múltiples apuestas estéticas y miradas del mundo que los artistas ofrecen"
               </p>
               
@@ -169,9 +169,9 @@ export function LegacySection() {
             </RevealSection>
           </div>
 
-          <div className="lg:col-span-5 relative group">
+          <div className="lg:col-span-3 lg:col-start-9 relative group">
             <RevealSection delay={500} className="relative">
-              <div className="relative aspect-[4/5] w-full bg-muted shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)] md:shadow-[40px_40px_0px_0px_rgba(0,0,0,0.05)] overflow-hidden border-4 border-brand-black">
+              <div className="relative aspect-[4/5] w-full bg-muted shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)] md:shadow-[30px_30px_0px_0px_rgba(0,0,0,0.05)] overflow-hidden border-4 border-brand-black">
                 {heroImage && (
                   <Image 
                     src={heroImage.imageUrl} 
@@ -187,7 +187,7 @@ export function LegacySection() {
               <div 
                 onMouseEnter={playHover}
                 onClick={playClick}
-                className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 w-32 h-32 md:w-44 md:h-44 bg-brand-gold flex items-center justify-center p-6 md:p-8 text-brand-black font-black text-xs md:text-base uppercase tracking-widest text-center leading-none z-20 shadow-2xl transition-transform group-hover:scale-105 cursor-pointer"
+                className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 w-28 h-28 md:w-36 md:h-36 bg-brand-gold flex items-center justify-center p-6 md:p-8 text-brand-black font-black text-[10px] md:text-xs uppercase tracking-widest text-center leading-none z-20 shadow-2xl transition-transform group-hover:scale-105 cursor-pointer"
               >
                 ARCHIVO <br /> VIVO <br /> MEDELLÍN
               </div>

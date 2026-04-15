@@ -12,11 +12,11 @@ import { useSoundEffects } from '@/hooks/use-sound-effects';
 const navItems = [
   { name: 'INICIO', href: '/' },
   { name: 'HISTORIA', href: '/historia' },
-  { name: 'EL PROYECTO', href: '/proyecto' },
   { name: 'ARCHIVO VIVO', href: '/archivo' },
-  { name: 'RUTA DE LA MEMORIA', href: '/mapa' },
-  { name: '¿SABÍAS QUÉ...?', href: '/sabias-que' },
   { name: 'MEDIATECA', href: '/mediateca' },
+  { name: '¿SABÍAS QUÉ...?', href: '/sabias-que' },
+  { name: 'RUTA DE LA MEMORIA', href: '/mapa' },
+  { name: 'EL PROYECTO', href: '/proyecto' },
 ];
 
 export function Navbar() {

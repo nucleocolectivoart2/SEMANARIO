@@ -15,8 +15,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogPortal,
-  DialogOverlay
 } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
 
@@ -143,24 +141,26 @@ export function Timeline() {
   return (
     <section id="archivo" className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7 space-y-8">
             <RevealSection>
               <Badge className="bg-brand-purple text-white px-6 py-2 rounded-none text-[10px] font-black uppercase tracking-[0.5em] w-fit mb-8">
                 ARCHIVO HISTÓRICO • SEMANARIO HOY
               </Badge>
-              <h1 className="text-6xl md:text-8xl font-black text-brand-black tracking-tighter leading-[0.8] uppercase">
+              <h1 className="text-[51px] md:text-[94px] font-black text-brand-black tracking-tighter leading-[0.8] uppercase">
                 MEMORIA <br />
-                <span className="text-brand-purple">IMPRESA</span>
+                <span className="text-brand-purple">IMPRESA</span> <br />
+                ARCHIVO <br />
+                <span className="text-brand-gold">VIVO</span>
               </h1>
-              <div className="pt-12 border-l-[16px] border-brand-purple pl-10">
-                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-tight max-w-2xl">
+              <div className="pt-8 border-l-[16px] border-brand-purple pl-10">
+                <p className="text-base md:text-lg text-muted-foreground font-medium leading-tight max-w-2xl">
                   Nuestros archivos son tesoros visuales que documentan una época y la evolución cultural de Medellín.
                 </p>
               </div>
             </RevealSection>
           </div>
-          <div className="lg:col-span-5 relative group">
+          <div className="lg:col-span-4 lg:col-start-9 relative group">
             <RevealSection delay={300}>
               <div className="relative aspect-[4/5] w-full bg-muted shadow-2xl overflow-hidden border-4 border-brand-black">
                 {archiveHeroImg && (
@@ -174,7 +174,7 @@ export function Timeline() {
                 )}
                 <div className="absolute inset-0 bg-brand-purple/10 mix-blend-multiply pointer-events-none" />
               </div>
-              <div className="absolute -bottom-10 -right-6 md:-right-10 w-40 h-40 bg-brand-purple flex items-center justify-center p-8 text-white font-black text-sm uppercase tracking-widest text-center leading-none z-20 shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)] transition-transform group-hover:scale-105">
+              <div className="absolute -bottom-8 -right-4 md:-bottom-10 md:-right-6 w-28 h-28 md:w-36 md:h-36 bg-brand-purple flex items-center justify-center p-6 md:p-8 text-white font-black text-[10px] md:text-xs uppercase tracking-widest text-center leading-none z-20 shadow-[20px_20px_0px_0px_rgba(0,0,0,0.05)] transition-transform group-hover:scale-105">
                 REGISTRO <br /> VIVO <br /> 1990-2000
               </div>
             </RevealSection>

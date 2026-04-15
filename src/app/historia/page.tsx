@@ -9,7 +9,7 @@ import { BrandStrip } from '@/components/BrandStrip';
 import { Badge } from '@/components/ui/badge';
 import { 
   History, Heart, Globe, Star, Zap, Sparkles, 
-  ShieldCheck, MapPin, Users, Send, CheckCircle, MessageSquare
+  ShieldCheck, MapPin, Users, Send, CheckCircle
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { RevealSection } from '@/components/RevealSection';
@@ -18,7 +18,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
-const fundadores = [
+const fundadoresPrincipales = [
   {
     name: "MARIA VICTORIA ALVAREZ GÓMEZ",
     role: "FUNDADORA Y DIRECCIÓN GENERAL",
@@ -34,16 +34,19 @@ const fundadores = [
     name: "CARMEN ISABEL USUGA SAMUDIO",
     role: "FUNDADORA",
     image: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/fundadores/03%20carmen-usuga.png",
-  },
+  }
+];
+
+const otrosProtagonistas = [
   {
     name: "LUIS FERNANDO MONTOYA FERNÁNDEZ",
-    role: "FUNDADOR",
+    role: "ALIADO HISTÓRICO",
     image: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/fundadores/04%20luis-fernando%20Montoya.png",
   },
   {
-    name: "CARLOS ALBERTO VELÁSQUEZ",
-    role: "FUNDADOR",
-    image: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/fundadores/05%20carlos-velasquez.png",
+    name: "José Enrique García Úsuga",
+    role: "ALIADO HISTÓRICO",
+    image: "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/fundadores/05%20Jose%20Enrique%20Garcia%20usuga.png",
   }
 ];
 
@@ -221,7 +224,7 @@ export default function HistoriaPage() {
               { title: "PROGRAMACIÓN SEMANAL", desc: "En 1990 solo existía la agenda diaria. Permitimos programarse con antelación.", icon: History },
               { title: "VERACIDAD Y CONFIANZA", desc: "Medio veraz por su periodicidad semanal. Un referente de información real.", icon: ShieldCheck },
               { title: "APOYO A LA GESTIÓN", desc: "Artistas y gestores culturales sintieron nuestro apoyo.", icon: Star },
-              { title: "FORMACIÓN DE PÚBLICOS", desc: "Pioneros en crear audiencias para la cultura en Medellín.", icon: Users },
+              { title: "FORMACIÓN DE PÚBLICOS", desc: "Pioneros en crear audiencias para la cultura en Medellín.", icon: History },
               { title: "VERSATILIDAD REAL", desc: "Capacidad de reacción semanal frente a agendas mensuales.", icon: Zap },
               { title: "DISTRIBUCIÓN GRATUITA", desc: "La gente buscaba la 'hojita amarilla' cada lunes en 100 puntos.", icon: Globe },
               { title: "CONEXIÓN EFICIENTE", desc: "El puente directo entre el público y la oferta cultural.", icon: Zap },
@@ -325,7 +328,7 @@ export default function HistoriaPage() {
                         disabled={isSubmitting}
                         className="w-full bg-brand-red hover:bg-brand-black text-white rounded-none h-16 font-black uppercase tracking-[0.4em] text-[11px] shadow-xl transition-all"
                       >
-                        {isSubmitting ? <Sparkles className="animate-spin mr-3" size={18} /> : <Send className="mr-3" size={18} />}
+                        <Send className="mr-3" size={18} />
                         ENVIAR AL ARCHIVO COMUNITARIO
                       </Button>
                     </form>
@@ -342,9 +345,11 @@ export default function HistoriaPage() {
         <div className="container mx-auto px-6 text-center mb-12 md:mb-16">
            <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase text-brand-black">FUNDADORES</h2>
         </div>
-        <div className="container mx-auto px-6">
+        
+        {/* GRUPO 1: FUNDADORES PRINCIPALES */}
+        <div className="container mx-auto px-6 mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {fundadores.map((f, i) => (
+            {fundadoresPrincipales.map((f, i) => (
               <RevealSection key={i} delay={i * 100} className="h-full">
                 <div className="bg-white p-6 md:p-8 shadow-xl border-b-4 border-brand-gold h-full flex flex-col items-center text-center group hover:-translate-y-1 transition-all duration-500">
                   <div className="relative aspect-square w-24 md:w-32 mb-6 bg-muted overflow-hidden shadow-md">
@@ -365,6 +370,37 @@ export default function HistoriaPage() {
                         "{f.bio}"
                       </p>
                     )}
+                  </div>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+        </div>
+
+        {/* SEPARADOR: OTROS PROTAGONISTAS */}
+        <div className="container mx-auto px-6 text-center mb-12 md:mb-16">
+           <h3 className="text-lg md:text-xl font-black tracking-tighter uppercase text-brand-black opacity-60">Otros protagonistas y aliados</h3>
+        </div>
+
+        {/* GRUPO 2: OTROS PROTAGONISTAS */}
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {otrosProtagonistas.map((f, i) => (
+              <RevealSection key={i} delay={i * 100} className="h-full">
+                <div className="bg-white p-6 md:p-8 shadow-xl border-b-4 border-brand-teal h-full flex flex-col items-center text-center group hover:-translate-y-1 transition-all duration-500">
+                  <div className="relative aspect-square w-24 md:w-32 mb-6 bg-muted overflow-hidden shadow-md">
+                    <Image 
+                      src={f.image} 
+                      alt={f.name} 
+                      fill 
+                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <span className="text-[8px] font-black uppercase tracking-[0.3em] text-brand-teal block">{f.role}</span>
+                    <h4 className="text-lg md:text-xl font-black uppercase tracking-tighter text-brand-black leading-tight">
+                      {f.name}
+                    </h4>
                   </div>
                 </div>
               </RevealSection>

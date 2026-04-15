@@ -1,11 +1,15 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { BrandStrip } from '@/components/BrandStrip';
 import { RevealSection } from '@/components/RevealSection';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Slider } from '@/components/ui/slider';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Image from 'next/image';
 import { 
   Network, Mic, Video, Globe, BookOpen, 
@@ -13,10 +17,13 @@ import {
   Layers, ShieldCheck, Mail, Phone, Users,
   History, Target, Heart, MapPin, 
   ExternalLink, ChevronRight, FileText,
-  BarChart, Rocket
+  BarChart, Rocket, Play, Pause, Sparkles, Download, X, 
+  Image as ImageIcon, Briefcase, Monitor,
+  Volume2, VolumeX
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { podcasts, officialVideos, reels, comparisons, getYouTubeId } from '@/lib/media-data';
 
 export default function ProyectoPage() {
   const logoGaia = "https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/img/Logo-gaia-Color.png";
@@ -31,12 +38,75 @@ export default function ProyectoPage() {
     { name: "ALIANZAS O APOYO", role: "NÚCLEO COLECTIVO Y CORPORACIÓN GAIA" }
   ];
 
+  const [activeTab, setActiveTab] = useState('podcasts');
+  const [activePodcast, setActivePodcast] = useState<any>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(80);
+  const [isMuted, setIsMuted] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<{youtubeId?: string, title: string} | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handlePlayPodcast = (podcast: any) => {
+    if (activePodcast?.id === podcast.id) {
+      if (isPlaying) { audioRef.current?.pause(); setIsPlaying(false); }
+      else { audioRef.current?.play(); setIsPlaying(true); }
+    } else {
+      setActivePodcast(podcast);
+      setIsPlaying(true);
+      if (audioRef.current) {
+        audioRef.current.src = podcast.audioUrl;
+        audioRef.current.play();
+      }
+    }
+  };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const updateProgress = () => setProgress((audio.currentTime / audio.duration) * 100 || 0);
+    const onLoadedMetadata = () => setDuration(audio.duration);
+    const onEnded = () => { setIsPlaying(false); setProgress(0); };
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('loadedmetadata', onLoadedMetadata);
+    audio.addEventListener('ended', onEnded);
+    return () => {
+      audio.removeEventListener('timeupdate', updateProgress);
+      audio.removeEventListener('loadedmetadata', onLoadedMetadata);
+      audio.removeEventListener('ended', onEnded);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume / 100;
+    }
+  }, [volume, isMuted]);
+
+  const formatTime = (time: number) => {
+    if (isNaN(time)) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const navItemsTransmedia = [
+    { id: 'podcasts', label: 'PODCASTS:\nVOCES DE\nLA CIUDAD', icon: Mic, activeColor: 'data-[state=active]:bg-brand-red' },
+    { id: 'documentales', label: 'SERIE: RETRATO\nAUDIOVISUAL', icon: Video, activeColor: 'data-[state=active]:bg-brand-gold' },
+    { id: 'reels', label: 'PIEZAS PARA REDES', icon: Smartphone, activeColor: 'data-[state=active]:bg-brand-purple' },
+    { id: 'galeria', label: 'GALERÍA: ANTES Y AHORA', icon: ImageIcon, activeColor: 'data-[state=active]:bg-brand-olive' },
+    { id: 'ebook', label: 'E-BOOK INTERACTIVO', icon: BookOpen, activeColor: 'data-[state=active]:bg-brand-ash' },
+  ];
+
   return (
     <main className="min-h-screen bg-white text-brand-black overflow-x-hidden">
       <Navbar />
+      <audio ref={audioRef} />
       
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-6 max-w-7xl">
+          
           {/* SECCIÓN 0: HEADER — FICHA DEL PROYECTO */}
           <RevealSection className="mb-32">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -46,14 +116,13 @@ export default function ProyectoPage() {
                     FICHA DEL PROYECTO
                   </Badge>
                   
-                  {/* BLOQUE NARRATIVO */}
                   <div className="flex gap-6 border-l-[12px] border-brand-teal pl-8 py-2">
                     <div className="space-y-4">
                       <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-brand-black leading-none">
                         SEMANARIO HOY: ARCHIVO VIVO
                       </h2>
                       <p className="text-lg md:text-xl font-bold italic text-brand-black/60 leading-tight normal-case">
-                      Una narrativa transmedia que revitaliza el archivo histórico del Semanario Cultural (1990-2000) y lo trae al presente (2026), activando la memoria y cultural de la ciudad y fortaleciendo su identidad.
+                        Una narrativa transmedia que revitaliza el archivo histórico del Semanario Cultural (1990-2000) y lo trae al presente (2026), activando la memoria y cultural de la ciudad y fortaleciendo su identidad.
                       </p>
                     </div>
                   </div>
@@ -120,7 +189,7 @@ export default function ProyectoPage() {
                     El Semanario Cultural fue una agenda cultural publicada entre 1990 y 2000, en plena época en la que Medellín atravesaba por dinámicas violentas, contrarrestadas por procesos comunicativos que buscaron dar voz a los artistas y gestores culturales. Sus más de 450 ediciones son un retrato de una época fundamental de resistencia.
                   </p>
                   <p className="text-lg font-medium text-brand-black/70 leading-relaxed">
-                    La temática central es la **memoria cultural como herramienta y fuerza viva**. No se trata de una mirada arqueológica, sino de una apuesta por revitalizar el archivo para activar conversaciones contemporáneas sobre identidad, territorio y futuro.
+                  La temática central es  la memoria cultural como herramienta y fuerza viva para comprender el presente y  fortalecer la identidad cultural, destacando la resistencia de organizaciones y gestores, conectando diversas generaciones con protagonistas históricos y organizaciones culturales actuales y fomentando la apropiación social del patrimonio cultural inmaterial.
                   </p>
                 </div>
                 <div className="lg:col-span-5 bg-brand-teal/5 p-10 border-l-[16px] border-brand-teal space-y-6">
@@ -153,7 +222,7 @@ export default function ProyectoPage() {
                   },
                   { 
                     title: "RETRATO AUDIOVISUAL", 
-                    desc: "Micro documentales sobre organizaciones que  hoy siguen construyendo la identidad cultural de Medellín.",
+                    desc: "Micro documentales sobre organizaciones que hoy siguen construyendo la identidad cultural de Medellín.",
                     icon: Video,
                     color: "bg-brand-teal"
                   },
@@ -187,6 +256,213 @@ export default function ProyectoPage() {
               </div>
             </RevealSection>
 
+            {/* PRODUCTOS TRANSMEDIA / PROTOTIPOS (TABS) */}
+            <section className="py-20 border-y-4 border-brand-black bg-muted/5 -mx-6 px-6">
+              <RevealSection className="mb-16">
+                <Badge className="bg-brand-purple text-white px-6 py-2 rounded-none text-[10px] font-black uppercase tracking-[0.5em] w-fit mb-6 shadow-md">
+                  PRODUCTOS TRANSMEDIA / PROTOTIPOS
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-black text-brand-black tracking-tighter uppercase leading-none">
+                  UNIVERSO <br /> <span className="text-brand-purple">NARRATIVO</span>
+                </h2>
+              </RevealSection>
+
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="bg-white border-2 border-brand-black h-auto p-1 flex flex-wrap gap-1 rounded-none mb-16 shadow-lg">
+                  {navItemsTransmedia.map((item) => (
+                    <TabsTrigger 
+                      key={item.id} 
+                      value={item.id} 
+                      className={cn(
+                        "flex-1 min-w-[120px] h-20 rounded-none flex flex-col items-center justify-center gap-2 transition-all data-[state=active]:text-white font-black uppercase text-[8px] tracking-widest",
+                        item.activeColor
+                      )}
+                    >
+                      <item.icon size={16} />
+                      <span className="whitespace-pre-line text-center leading-tight">{item.label}</span>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+
+                <TabsContent value="podcasts" className="space-y-12 animate-in fade-in duration-500 outline-none">
+                  {activePodcast && (
+                    <div className="bg-[#111111] relative overflow-hidden border-l-[16px] border-brand-red shadow-2xl p-8 md:p-12 mb-16">
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+                        {/* Portada con borde rojo */}
+                        <div className="md:col-span-3 aspect-square relative border-4 border-brand-red p-1 bg-brand-red/10 shadow-2xl overflow-hidden">
+                          <img src={activePodcast.image} className="w-full h-full object-cover" alt="" />
+                          <div className="absolute inset-0 bg-brand-red/10 mix-blend-multiply" />
+                        </div>
+
+                        <div className="md:col-span-9 space-y-8">
+                          <div className="space-y-4">
+                            <Badge className="bg-brand-red text-white text-[10px] font-black uppercase tracking-widest rounded-none px-4 py-1.5 border-none shadow-lg">
+                              {activePodcast.duration}
+                            </Badge>
+                            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] text-white">
+                              {activePodcast.title}
+                            </h3>
+                          </div>
+
+                          <div className="bg-white/5 border border-white/10 p-8 md:p-10 space-y-8 shadow-inner">
+                            {/* Barra de progreso */}
+                            <div className="space-y-4">
+                              <Slider 
+                                value={[progress]} 
+                                max={100} 
+                                step={0.1}
+                                onValueChange={(v) => { 
+                                  if(audioRef.current) audioRef.current.currentTime = (v[0]/100)*duration; 
+                                }}
+                                className="cursor-pointer"
+                              />
+                            </div>
+
+                            <div className="flex flex-wrap items-center justify-between gap-10">
+                              <div className="flex items-center gap-8">
+                                {/* Botón de Play Blanco */}
+                                <button 
+                                  onClick={() => handlePlayPodcast(activePodcast)} 
+                                  className="w-20 h-20 bg-white text-brand-black flex items-center justify-center rounded-none hover:bg-brand-red hover:text-white transition-all shadow-2xl active:scale-95 group"
+                                >
+                                  {isPlaying ? <Pause size={40} fill="currentColor" /> : <Play size={40} fill="currentColor" className="ml-1.5" />}
+                                </button>
+                                
+                                <div className="flex flex-col">
+                                  <span className="text-[10px] font-black text-brand-red uppercase tracking-widest mb-1">SIGNAL_INFO</span>
+                                  <div className="flex items-baseline gap-2">
+                                    <span className="font-mono text-2xl text-white font-bold tracking-tighter">
+                                      {formatTime(audioRef.current?.currentTime || 0)}
+                                    </span>
+                                    <span className="font-mono text-lg text-white/20">/</span>
+                                    <span className="font-mono text-lg text-white/40 font-medium">
+                                      {formatTime(duration)}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Controles de Volumen Extra */}
+                              <div className="flex items-center gap-6 bg-brand-black/40 p-4 px-6 border border-white/5 shadow-xl">
+                                <button 
+                                  onClick={() => setIsMuted(!isMuted)}
+                                  className={cn("transition-colors", isMuted ? "text-brand-red" : "text-white/60 hover:text-brand-gold")}
+                                >
+                                  {isMuted || volume === 0 ? <VolumeX size={24} /> : <Volume2 size={24} />}
+                                </button>
+                                <div className="w-32 md:w-40">
+                                  <Slider 
+                                    value={[isMuted ? 0 : volume]} 
+                                    max={100} 
+                                    onValueChange={(v) => { setVolume(v[0]); setIsMuted(false); }}
+                                    className="[&_[role=slider]]:bg-white"
+                                  />
+                                </div>
+                                <div className="w-10 text-right">
+                                  <span className="font-mono text-xs text-brand-gold font-bold">{isMuted ? 'OFF' : `${volume}%`}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {podcasts.map(pod => (
+                      <div key={pod.id} className="bg-[#1A1A1A] flex flex-col border-b-8 shadow-2xl transition-all hover:-translate-y-1 group" style={{ borderBottomColor: pod.color }}>
+                        <div className="relative aspect-video overflow-hidden cursor-pointer" onClick={() => handlePlayPodcast(pod)}>
+                          <img src={pod.image} alt={pod.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="bg-white p-3 shadow-2xl transform transition-transform group-hover:scale-110">
+                              {activePodcast?.id === pod.id && isPlaying ? <Pause size={24} className="text-black fill-current" /> : <Play size={24} className="text-black fill-current ml-0.5" />}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-6 md:p-7 flex flex-col gap-6">
+                          <div className="space-y-3">
+                            <span className="text-[9px] font-black uppercase tracking-[0.2em]" style={{ color: pod.color }}>{pod.duration}</span>
+                            <h4 className="text-lg md:text-xl font-black text-white uppercase tracking-tighter leading-tight">{pod.title}</h4>
+                            <p className="text-[11px] md:text-[12px] text-gray-400 font-medium leading-relaxed text-justify line-clamp-3">{pod.desc}</p>
+                          </div>
+                          <div className="space-y-4 pt-4 border-t border-white/5">
+                            <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.3em] block">PREGUNTAS ORIENTADORAS:</span>
+                            <ul className="space-y-2">
+                              {pod.questions.map((q, i) => (
+                                <li key={i} className="flex gap-2 text-[10px] font-medium text-gray-400 leading-tight">
+                                  <span className="text-brand-gold font-black shrink-0">•</span> {q}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="documentales" className="animate-in fade-in duration-500 outline-none">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {officialVideos.filter(v => v.project === 'crea-digital').map(video => (
+                      <div key={video.id} className="group space-y-4 cursor-pointer" onClick={() => !video.isPlaceholder && setSelectedVideo({ youtubeId: video.youtubeId, title: video.title })}>
+                        <div className="relative aspect-video border-2 border-brand-black overflow-hidden bg-muted">
+                          <Image src={video.thumbnailUrl || `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`} alt={video.title} fill className="object-cover group-hover:scale-105 transition-transform" />
+                          {video.isPlaceholder && <div className="absolute inset-0 bg-brand-black/60 backdrop-blur-sm flex items-center justify-center font-black text-[8px] tracking-[0.4em] text-white">PRODUCCIÓN 2026</div>}
+                          <div className="absolute top-4 right-4 bg-white text-brand-black p-2"><Play size={16} fill="currentColor" /></div>
+                        </div>
+                        <h4 className="font-black text-lg uppercase tracking-tight">{video.title}</h4>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="reels" className="animate-in fade-in duration-500 outline-none">
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    {reels.map(reel => (
+                      <div key={reel.id} className="aspect-[9/16] relative border-2 border-brand-black group cursor-pointer overflow-hidden" onClick={() => setSelectedVideo({ youtubeId: reel.youtubeId, title: reel.title })}>
+                        <img src={`https://i.ytimg.com/vi/${reel.youtubeId}/hqdefault.jpg`} className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all" alt="" />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-brand-purple/40">
+                          <Play size={32} className="text-white fill-current" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="galeria" className="animate-in fade-in duration-500 outline-none">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    {comparisons.map(item => (
+                      <div key={item.id} className="space-y-6">
+                        <div className="grid grid-cols-2 gap-1 h-60 border-2 border-brand-black">
+                          <img src={item.oldImage} className="w-full h-full object-cover grayscale" alt="" />
+                          <img src={item.newImage} className="w-full h-full object-cover" alt="" />
+                        </div>
+                        <h4 className="font-black uppercase tracking-tighter text-xl">{item.title}</h4>
+                        <p className="text-xs text-muted-foreground text-justify italic">"{item.description}"</p>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="ebook" className="animate-in fade-in duration-500 outline-none">
+                  <div className="bg-brand-gold p-12 border-4 border-brand-black flex flex-col md:flex-row items-center gap-12">
+                    <div className="w-full md:w-1/3 aspect-[3/4] relative border-2 border-brand-black shadow-2xl">
+                      <Image src="https://raw.githubusercontent.com/nucleocolectivoart2/SEMANARIO/main/archivo/portadas/collage.jpg" alt="Ebook" fill className="object-cover" />
+                    </div>
+                    <div className="flex-1 space-y-8">
+                      <h3 className="text-4xl font-black uppercase tracking-tighter leading-none">ARCHIVO VIVO: UNA HISTORIA DEL SEMANARIO HOY</h3>
+                      <p className="text-xl font-bold italic">"Un viaje interactivo de 10-15 páginas por la historia del Semanario Cultural, sus protagonistas y su impacto en Medellín."</p>
+                      <Button className="bg-brand-black text-white h-16 rounded-none px-10 font-black uppercase tracking-widest text-xs group">
+                        DESCARGAR E-BOOK PDF <Download className="ml-4 group-hover:translate-y-1 transition-transform" size={18} />
+                      </Button>
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </section>
+
             {/* 3. TRATAMIENTO AUDIOVISUAL */}
             <RevealSection className="space-y-16">
               <div className="flex items-center gap-6 border-b-4 border-brand-black pb-6">
@@ -197,7 +473,7 @@ export default function ProyectoPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border-4 border-brand-black">
                 <div className="lg:col-span-4 bg-brand-black text-white p-12 space-y-10">
                   <div className="space-y-4">
-                    <Badge className="bg-brand-red text-white rounded-none tracking-widest text-[9px]">IMAGEN Y CINE</Badge>
+                    <Badge className="bg-brand-red text-white rounded-none tracking-widest text-[9px]">IMAGEN Y VIDEO</Badge>
                     <h3 className="text-3xl font-black uppercase tracking-tighter leading-none">ESTÉTICA DE AUTOR</h3>
                   </div>
                   <div className="space-y-6">
@@ -224,7 +500,7 @@ export default function ProyectoPage() {
                       <h4 className="font-black text-lg uppercase tracking-tighter">SONIDO Y MÚSICA</h4>
                     </div>
                     <p className="text-sm font-medium leading-relaxed opacity-70 text-justify">
-                      Captura en **32 bits flotante** para garantizar cero saturación. La banda sonora es original y generada con **Suno IA**, traduciendo testimonios en piezas emocionales únicas mediante prompts curados.
+                      Captura en 32 bits flotante para garantizar cero saturación. La banda sonora es original y generada con IA, traduciendo testimonios en piezas emocionales únicas mediante prompts curados.
                     </p>
                   </div>
                   <div className="space-y-6">
@@ -233,7 +509,7 @@ export default function ProyectoPage() {
                       <h4 className="font-black text-lg uppercase tracking-tighter">POSTPRODUCCIÓN</h4>
                     </div>
                     <p className="text-sm font-medium leading-relaxed opacity-70 text-justify">
-                      Flujo de trabajo en **DaVinci Resolve**. Look cinematográfico con negros profundos y sombras azul-verde. Motion graphics 2D integrados orgánicamente para potenciar la narrativa.
+                      Flujo de trabajo en DaVinci Resolve. Look cinematográfico con negros profundos y sombras azul-verde. Motion graphics 2D integrados orgánicamente para potenciar la narrativa.
                     </p>
                   </div>
                 </div>
@@ -254,13 +530,13 @@ export default function ProyectoPage() {
                     i: FileText
                   },
                   { 
-                    t: "DIÁLOGOS GENERACIONALES", 
+                    t: "DIÁLOGOS INTERGENERACIONALES", 
                     d: "Encuentro entre fundadores de los 90, organizaciones actuales y públicos diversos para construir memoria colectiva.",
                     i: Users
                   },
                   { 
-                    t: "TERRITORIO CENTRO", 
-                    d: "La geografía es el centro de Medellín: calles, plazas y edificios patrimoniales actuando como testigos y escenarios activos.",
+                    t: "TERRITORIO: LA CIUDAD", 
+                    d: "La geografía la tejen las diversas organizaciones que ocupan los espacios con arte y pensamiento y los edificios patrimoniales que guardan memoria e historias.",
                     i: MapPin
                   }
                 ].map((item, i) => (
@@ -273,7 +549,7 @@ export default function ProyectoPage() {
               </div>
             </RevealSection>
 
-            {/* EQUIPO DE TRABAJO — DISEÑO SIN RECUADRO */}
+            {/* EQUIPO DE TRABAJO */}
             <RevealSection className="space-y-16">
               <div className="flex items-center gap-6 border-b-4 border-brand-black pb-6">
                 <Users className="text-brand-teal" size={48} />
@@ -383,7 +659,7 @@ export default function ProyectoPage() {
                   <ShieldCheck size={32} className="text-white" />
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-60">DOCUMENTACIÓN TÉCNICA</span>
-                    <h2 className="text-xl md:text-3xl font-black uppercase tracking-tighter leading-none">CONVOCATORIA CREA DIGITAL 2026</h2>
+                    <h2 className="text-xl md:text-3xl font-black uppercase tracking-tighter leading-none">8. CONVOCATORIA CREA DIGITAL 2026</h2>
                   </div>
                 </div>
                 <div className="prose prose-invert max-w-none">
@@ -436,6 +712,20 @@ export default function ProyectoPage() {
           </div>
         </div>
       </div>
+
+      <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
+        <DialogContent className="max-w-7xl p-0 bg-black border-none rounded-none overflow-hidden">
+          <DialogHeader className="sr-only"><DialogTitle>{selectedVideo?.title}</DialogTitle></DialogHeader>
+          <button onClick={() => setSelectedVideo(null)} className="absolute right-4 top-4 z-[100] bg-brand-red text-white p-3 border-2 border-white">
+            <X size={24} />
+          </button>
+          <div className="relative aspect-video w-full bg-black">
+            {selectedVideo?.youtubeId && (
+              <iframe src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`} className="absolute inset-0 w-full h-full" allowFullScreen></iframe>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <BrandStrip />
     </main>

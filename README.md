@@ -24,7 +24,7 @@ El proyecto se divide en secciones clave que componen el universo narrativo:
 
 1.  **Archivo Vivo (Impreso):** Digitalización y visualización de ediciones históricas en formato PDF interactivo.
 2.  **Ruta de la Memoria (Mapa):** Cartografía interactiva con más de 30 hitos culturales y patrimoniales georreferenciados en el centro de Medellín.
-3.  **Mediateca (Resonancia):**
+3.  **Mediateca (NARRATIVAS DIGITALES):**
     -   **VOCES DE LA CIUDAD:** Serie de podcasts de 5 episodios.
     -   **Tres Cortometrajes:** Serie cinematográfica producida para Crea Digital 2026.
     -   **NC Radio:** Widget de radio sintonizado con frecuencias culturales globales y locales.
